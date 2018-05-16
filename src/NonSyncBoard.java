@@ -25,7 +25,7 @@ public class NonSyncBoard {
                 newX = generator.nextInt(this.w);
             }
             grid[newY][newX] = new Cell(newY, newX);
-            ;
+            ;;
         }
     }
 
