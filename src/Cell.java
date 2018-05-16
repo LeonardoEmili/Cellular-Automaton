@@ -9,7 +9,7 @@ public class Cell {
     }
 
     public boolean isAlive() {
-        return this.status == true;
+        return this.status;
     }
 
     public void setToAlive() {

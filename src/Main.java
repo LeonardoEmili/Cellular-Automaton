@@ -2,15 +2,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Wrapper w = new Wrapper();
-        NonSyncBoard board1 = new NonSyncBoard(10, 10);
-        board1.display();
-        int refresh = 5;
-        while (refresh != 0) {
-            try { Thread.currentThread().sleep(500); } catch (InterruptedException e) {}
-            board1.update();
-            board1.display();
-            refresh--;
-        }
+
+        int h, w = 0;
+        int states = 0;
+        //chiede tipo di board
+        //metodo per regole,crea stati e gli passa regole(struttura con vicini,stato presente,stato futuro)
+        //crea la board e gli passa gli stati,h,w
+        //si chiama un qualche board.start() (si interrompe col thread sopra)
+        //ciaone
+
     }
 }
