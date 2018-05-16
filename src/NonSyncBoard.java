@@ -84,14 +84,4 @@ public class NonSyncBoard {
         System.out.println();
     }
 
-
-
-
-    public int getH() {
-        return h;
-    }
-
-    public int getW() {
-        return w;
-    }
 }
