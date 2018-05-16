@@ -11,5 +11,10 @@ public class Main {
         //si chiama un qualche board.start() (si interrompe col thread sopra)
         //ciaone
 
+        // if dynamic
+        //      make dynamic board
+        // else
+        //      make static board
+
     }
 }

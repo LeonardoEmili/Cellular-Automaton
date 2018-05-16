@@ -4,26 +4,33 @@ public class NonSyncBoard {
 
     private int h, w;
     private Cell[][] grid;
-    private int population;
     private Random generator;
+    int percentage = 30;
+    boolean randomSeed;
+    Tuple[] population;
 
-    public NonSyncBoard(int h, int w) {
+    public NonSyncBoard(int h, int w, Tuple[] population) {
         this.h = h;
         this.w = w;
-        this.population = h * w * 30 / 100;
         this.grid = new Cell[h][w];
         this.generator = new Random();
-        setPopulation();
+        this.randomSeed = randomSeed;
+        this.percentage = percentage;
+        this.population = population;
+        populate();
     }
 
-    public void setPopulation() {
-
+    public void populate() {
         for (int i = 0; i < this.h; i++) {
-            for (int j = 0; j < this.w; j++) {
+            for (int j = 0; j < this.w; j++)
                 grid[i][j] = new Cell(i, j);
-            }
         }
-        for (int i = 0; i < this.population; i++) {
+        this.setRandomPopulation();
+    }
+
+    public void setRandomPopulation() {
+        int population = h * w * percentage / 100;
+        for (int i = 0; i < population; i++) {
             int newY = generator.nextInt(this.h);
             int newX = generator.nextInt(this.w);
             while (grid[newY][newX].isAlive()) {
@@ -33,6 +40,8 @@ public class NonSyncBoard {
             grid[newY][newX].setToAlive();
         }
     }
+
+
 
     public static int getNeighborsAlive(int y, int x, Cell[][] grid) {
         int counter = 0;
