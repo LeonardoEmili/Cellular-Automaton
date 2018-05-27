@@ -1,0 +1,20 @@
+#root {
+    -fx-background-image: url('/resources/background.jpg');
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+.buttons {
+    -fx-background-color: #CCFF99;
+}
+
+#CAsel {
+    -fx-background-image: url('/resources/background.jpg');
+    -fx-background-position: right center;
+    -fx-background-repeat: stretch;
+}
+
+#SimulatorWin {
+    -fx-background-image: url('/resources/shadowDeepBlue.jpg');
+    -fx-background-repeat: stretch;
+}

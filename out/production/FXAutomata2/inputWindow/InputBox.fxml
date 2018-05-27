@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inputWindow.FXMLIPController">
+   <children>
+      <Label text="Input Form" textFill="WHITE">
+         <font>
+            <Font name="Kalimati" size="42.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
+         <children>
+            <Label text="Height" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+            <Slider fx:id="slider1" prefHeight="57.0" prefWidth="235.0" />
+            <Label fx:id="label1" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
+         <children>
+            <Label text="Width" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+            <Slider fx:id="slider2" prefHeight="57.0" prefWidth="235.0" />
+            <Label fx:id="label2" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
+         <children>
+            <Label text="States" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+            <Slider fx:id="slider3" prefHeight="57.0" prefWidth="235.0" />
+            <Label fx:id="label3" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+         <children>
+            <TextField fx:id="profileName" alignment="CENTER" promptText="Profile's Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#save" text="Save Profile">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Next">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
