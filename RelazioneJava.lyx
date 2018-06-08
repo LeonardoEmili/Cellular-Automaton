@@ -36,7 +36,7 @@ eqs-within-sections
 figs-within-sections
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language italian
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -87,7 +87,7 @@ figs-within-sections
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -196,7 +196,7 @@ L'intero progetto é stato scritto in
 \begin_inset Formula $CSS$
 \end_inset
 
- per le personalizzazioni grafiche 
+ per le personalizzazioni grafiche, 
 \begin_inset Formula $LaTex$
 \end_inset
 
@@ -306,17 +306,20 @@ Automi cellulari
 \begin_layout Standard
 Nel seguito assumiamo che ciascuna cellula appartenga ad un unico stato,
  i motivi legati a questo dettaglio sono molteplici e la ragione apparirá
- piú chiaro nel 
+ piú chiara nel 
 \emph on
 paragrafo 6
 \emph default
- dove la questione viene trattata piú in dettaglio.
+ dove la questione viene trattata piú nel dettaglio.
  
 \begin_inset Newline newline
 \end_inset
 
-Nel testo viene inoltre utilizzata di frequente la nozione di vicino definita
- da 
+Nel testo viene inoltre utilizzata frequentemente la nozione di 
+\emph on
+vicino
+\emph default
+ fornita da 
 \emph on
 Edward Forrest Moore
 \emph default
@@ -345,7 +348,7 @@ L'automa sviluppato dal matematico
 John Conway 
 \emph default
 é uno dei pilastri della collezione, l'apparente semplicitá con cui regole
- e stati vengono definiti portano all'occhio non pochi risvolti teorici.
+ e stati vengono definiti porta all'occhio non pochi risvolti teorici.
  La scena si svolge su una griglia bidimensionale formata da cellule che
  possono assumere soltanto due stati: vivo o morto.
  Le regole di transizione adottate sono le stesse definite in origine dal
@@ -373,7 +376,161 @@ Circular Redistribution
 \end_layout
 
 \begin_layout Standard
-Descrizione e regole che lo definiscono.
+Si presenta in aggiunta un nuovo automa a cui è stato dato il nome 
+\emph on
+Circular Redistribution
+\emph default
+, essendo nato dall'unione di regole per l'eccitamento di una cella con
+ un 
+\emph on
+blur
+\emph default
+ circolare basato su una semplificazione delle funzioni trigonometriche
+ per selezionare uno dei vicini della cella sulla quale si eseguono le varie
+ computazioni.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Lo stato iniziale assegnato ad una cella è un valore preso nell'intervallo
+ [0, 
+\begin_inset Formula $\ldots$
+\end_inset
+
+ ,1] tramite il quale viene assegnato un colore in scala di grigi che riflette
+ lo stato scelto.
+\begin_inset Newline newline
+\end_inset
+
+L'algoritmo applicato dall'automa è il seguente:
+\end_layout
+
+\begin_layout Enumerate
+Per ogni cella, si calcola la somma 
+\begin_inset Formula $S$
+\end_inset
+
+ dello stato assegnato ad ognuno dei vicini di 
+\emph on
+rango 1
+\emph default
+ della cella corrente.
+\end_layout
+
+\begin_layout Enumerate
+Due valori, 
+\emph on
+
+\begin_inset Formula $MinThreshold$
+\end_inset
+
+
+\emph default
+ e 
+\emph on
+
+\begin_inset Formula $MaxThreshold$
+\end_inset
+
+
+\emph default
+ vengono utilizzati per determinare se la cella è in stato di 
+\emph on
+eccitazione
+\emph default
+ o meno.
+ Si ottiene una cella in stato di eccitazione se 
+\emph on
+
+\begin_inset Formula $MinThreshold$
+\end_inset
+
+
+\emph default
+ 
+\begin_inset Formula $\prec$
+\end_inset
+
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\begin_inset Formula $\prec$
+\end_inset
+
+ 
+\emph on
+
+\begin_inset Formula $MaxThreshold$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+La somma 
+\begin_inset Formula $S$
+\end_inset
+
+ dei valori di una cella eccitata viene trasformata in un 
+\emph on
+angolo
+\emph default
+, utilizzato per selezionare uno degli 8 vicini di 
+\emph on
+Moore
+\emph default
+ della cella eccitata.
+ Una volta selezionato il vicino, si interpolerà il valore dello stato della
+ cella eccitata con il valore dello stato della cella selezionata, tramite
+ l'utilizzo di una variabile definita 
+\series bold
+\emph on
+interpolation
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+L'angolo utilizzato viene salvato all'interno della cella 
+\emph on
+eccitata
+\emph default
+, di modo che nell'iterazione successiva l'angolo calcolato tramite la nuova
+ somma dei valori verrà sommato all'angolo precedentemente trovato, creando
+ appunto una 
+\series bold
+\emph on
+rotazione
+\series default
+\emph default
+ delle celle scelte per il 
+\emph on
+blur
+\emph default
+ che ha dato il nome all'automa presentato.
+\end_layout
+
+\begin_layout Standard
+Utilizzando una configurazione iniziale nella quale la griglia è composta
+ di colori casuali esclusivamente neri o bianchi con una distribuzione di
+ almeno il 50% di elementi bianchi si ottiene una struttura che a seguito
+ delle prime 500 generazioni tende a creare cluster simili alle simulazioni
+ ottenute con gli algoritmi di 
+\emph on
+marching squares.
+\begin_inset Newline newline
+\end_inset
+
+Non è ancora chiaro se la struttura cellulare che si genera con questo tipo
+ di configurazioni è destinata o meno a stabilizzarsi nel corso di un numero
+ finito di generazioni, tramite sperimentazioni su un lasso di tempo prolungato
+ le dimensioni dei cluster sembrano crescere fino a stabilizzarsi, ma l'evoluzio
+ne del loro movimento lungo la griglia è continuo.
 \end_layout
 
 \begin_layout Subsection
@@ -381,7 +538,136 @@ Cyclic CA
 \end_layout
 
 \begin_layout Standard
-Descrizione e regole che lo definiscono.
+Inizialmente sviluppati da 
+\emph on
+David Griffeath
+\emph default
+ all'università del Wisconsin, gli automi cellulari ciclici esibiscono un
+ complesso sistema di auto - organizzazione iterando una regola estremamente
+ semplice su di una matrice di stati.
+ Un numero 
+\emph on
+
+\begin_inset Formula $n$
+\end_inset
+
+
+\emph default
+ di possibili stati viene scelto a priori, che verranno rappresentati tramite
+ una scala cromatica di colori, uno per ogni stato.
+ Ad ogni iterazione ciascuno 
+\emph on
+stato/colore
+\emph default
+ puo' avanzare esclusivamente al suo 
+\series bold
+stato successivo
+\series default
+, l'ultimo dei quali ritorna al primo, in modo ciclico.
+\begin_inset Newline newline
+\end_inset
+
+Le regole di sviluppo dell'automa seguono la notazione 
+\series bold
+\emph on
+R/T/C/N
+\series default
+\emph default
+ :
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+R
+\series default
+ 
+\emph default
+specifica il rango della ricerca dei vicini all'interno della griglia sul
+ quale si simula l'automa, per 
+\emph on
+R=1
+\emph default
+ saranno dunque visitate tutte le celle a distanza 1 dalla cella sulla quale
+ si stanno applicando le regole.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+T
+\series default
+\emph default
+ specifica una soglia (
+\emph on
+threshold
+\emph default
+) che indica il minimo numero di celle adiacenti che hanno il 
+\emph on
+colore/stato
+\emph default
+successivo necessario alla cella corrente per avanzare allo stato successivo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+C
+\series default
+\emph default
+ specifica il numero di possibili stati 
+\emph on
+
+\begin_inset Formula $n$
+\end_inset
+
+
+\emph default
+ presenti nella griglia.
+ Ad ognuno di questi sarà automaticamente assegnato un colore specifico
+ della scala cromatica.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+N
+\series default
+\emph default
+ discrimina la regola utilizzata per selezionare i vicini, che puo' essere
+ 
+\series bold
+\emph on
+extended Moore 
+\series default
+\emph default
+oppure 
+\series bold
+\emph on
+von Neumann
+\series default
+\emph default
+.
+ In questa si è deciso di utilizzare esclusivamente l'
+\emph on
+Extended Moore 
+\emph default
+essendo questo quello più affine alla creazione di pattern a seguito del
+ cambio delle tre regole precedenti.
+\end_layout
+
+\begin_layout Standard
+La condizione iniziale da preferirsi per godere al meglio di questa simulazione
+ è quella in cui viene assegnato un colore casuale ad ogni cella della griglia,
+ sia questo una 
+\emph on
+tupla (r,g,b)
+\emph default
+ oppure un colore in scala grigi.
 \end_layout
 
 \begin_layout Subsection
@@ -389,15 +675,148 @@ Diffusion Aggregation
 \end_layout
 
 \begin_layout Standard
-Descrizione e regole che lo definiscono.
+Diffusion Aggregation è una simulazione semplificata di un processo conosciuto
+ come 
+\emph on
+Diffusion-Limited Aggregation
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La teoria fu proposta inizialmente da T.A.
+ Witten Jr.
+ nel 1981 (Witten, T.
+ A.; Sander, L.
+ M.
+ (1981).
+ "Diffusion-Limited Aggregation, a Kinetic Critical Phenomenon".
+ Physical Review Letters.
+ 47 (19): 14001403.
+ Bibcode:1981PhRvL..47.1400W.
+ doi:10.1103/PhysRevLett.47.1400).
+\end_layout
+
+\end_inset
+
+.
+ Processo tramite il quale particelle che percorrono un random walk secondo
+ un movimento Browniano formano cluster aggregati di complesse ed ordinate
+ strutture ad albero.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Inizialmente una griglia vuota viene occupata da un numero casuale di celle
+ il cui stato iniziale è 
+\emph on
+in movimento
+\emph default
+, si assegna inoltre alla cella al centro della griglia lo stato 
+\emph on
+aggregata.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+Ad ogni cella 
+\emph on
+in movimento
+\emph default
+ viene assegnato un colore che descrive una delle 8 possibili direzioni
+ (sempre secondo il 
+\emph on
+Moore neighborhood
+\emph default
+) in cui la cella sta viaggiando.
+ Nel caso in cui due celle 
+\emph on
+in movimento
+\emph default
+ dovessero scontrarsi, viene assegnata una direzione causale differente
+ ad entrambe per permettergli di continuare il loro viaggio.
+ Se invece una cella entra in contatto con altra il cui stato è 
+\emph on
+aggregata
+\emph default
+, anche lei muterá in 
+\emph on
+aggregata
+\emph default
+.
+ Si stabilisce un contatto quando una cella in movimento diventa una vicina
+ di una cella aggregata.
+ All'aumentare delle celle 
+\emph on
+aggregate
+\emph default
+ segue il diminuire delle celle in movimento rimaste, la simulazione terminerà
+ con l'assegnazione dello stato 
+\emph on
+aggregata
+\emph default
+ al totale delle celle iniziali presenti all'interno della griglia.
 \end_layout
 
 \begin_layout Subsection
 H3 Rule
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+H3-Rule è una simulazione dell'automa cellulare elementare 1-Dimensionale
+ riferito tramite il suo Wolfram code, una convenzione inventata da Wolfram
+ tramite la quale sono presenti fino a 256 possibili regole (http://mathworld.wol
+fram.com/ElementaryCellularAutomaton.html)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Descrizione e regole che lo definiscono.
+È la classe di automi più semplice nella quale ogni cella possiede uno dei
+ due possibili valori, 0 o 1.
+ L'evoluzione di una cella dell'automa alla generazione successiva è interamente
+ specificata dai valori delle due celle adiacenti e dallo stato attuale
+ della cella, ottenendo dunque un massimo di 256 possibili combinazioni.
+ Si parte da una prima 
+\emph on
+riga
+\emph default
+ nella superiore della griglia in cui viene mostrata la prima generazione
+ dell'automa, ad ogni iterazione la riga successiva calcolerà gli stati
+ della nuova generazione, e così via.
+\begin_inset Newline newline
+\end_inset
+
+La regola utilizzata è la n° 182, che presenta un'evoluzione che ricalca
+ il famoso 
+\series bold
+\emph on
+triangolo di Sierpinski
+\series default
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Wacław Franciszek Sierpiński (Varsavia, 14 marzo 1882 - Varsavia, 21 ottobre
+ 1969) è stato un matematico polacco.
+ Egli é ampiamente conosciuto per i suoi contributi nella teoria degli insiemi
+ ed per le sue scoperte, tra cui: il numero e il triangolo di Sierpiński.
+\end_layout
+
+\end_inset
+
+.
+ Per visualizzare questo risultato è necessario impostare la condizione
+ iniziale della griglia che assegna ad una sola cella lo stato 1, che sarà
+ la cella centrale della prima riga in alto della griglia.
 \end_layout
 
 \begin_layout Standard
@@ -411,7 +830,8 @@ Descrizione e regole che lo definiscono.
 Code Snippets
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
+Il seguente metodo mostra un possibile uso della Reflection.
 \begin_inset listings
 inline false
 status open
@@ -435,7 +855,12 @@ status open
 \begin_layout Plain Layout
 
 		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
-Constructor().newInstance());             		simulator.setProgram(currentProgram);
+Constructor().newInstance());             		
+\end_layout
+
+\begin_layout Plain Layout
+
+		simulator.setProgram(currentProgram);
 \end_layout
 
 \begin_layout Plain Layout
@@ -504,6 +929,182 @@ Constructor().newInstance());             		simulator.setProgram(currentProgram)
 \end_layout
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Example
+Il seguente metodo mostra l'inpatto della logica booleana nel progetto.
+\end_layout
+
+\begin_layout Example
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+    private void comeToMeCA(String className) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		Class<?> C = CellularAutomataProgram.class.forName("simulatorWindow.programs."
+ + className);
+\end_layout
+
+\begin_layout Plain Layout
+
+		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
+Constructor().newInstance());             		
+\end_layout
+
+\begin_layout Plain Layout
+
+		simulator.setProgram(currentProgram);
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (ClassNotFoundException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Class " + className + " has not been defined.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (NoSuchMethodException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Constructor not found");
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (IllegalAccessException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (InstantiationException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (InvocationTargetException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Example
+Altro metodo figo che abbiamo fatto ? comeToMeCA serve solo per riempire
+ lo spazio, va rimpiazzato col nuovo codice.
+\end_layout
+
+\begin_layout Example
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+    private void comeToMeCA(String className) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		Class<?> C = CellularAutomataProgram.class.forName("simulatorWindow.programs."
+ + className);
+\end_layout
+
+\begin_layout Plain Layout
+
+		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
+Constructor().newInstance());             		
+\end_layout
+
+\begin_layout Plain Layout
+
+		simulator.setProgram(currentProgram);
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (ClassNotFoundException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Class " + className + " has not been defined.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (NoSuchMethodException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Constructor not found");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
 \begin_inset Newpage pagebreak
 \end_inset
 
