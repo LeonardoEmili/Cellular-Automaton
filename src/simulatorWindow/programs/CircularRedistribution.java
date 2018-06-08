@@ -11,7 +11,6 @@ import simulatorWindow.utils.iVec2;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
-/** follows conventions and general ideas from: http://www.mirekw.com/ca/rullex_cycl.html */
 public class CircularRedistribution extends CellularAutomataProgram {
     class Cell {
         int  state;    // 0 = non excited,  1 = excited
@@ -41,6 +40,7 @@ public class CircularRedistribution extends CellularAutomataProgram {
             for (int j = 0; j < gridSize.x; j++)
                 grid[i][j] = new Cell();
     }
+
     public void tick() {
         for (int i = 0; i < gridSize.y; i++)
             for (int j = 0; j < gridSize.x; j++) {
@@ -92,7 +92,6 @@ public class CircularRedistribution extends CellularAutomataProgram {
     public boolean isExcited(Cell cell, int x, int y) {
         float value = getAccumulationValue(cell, x, y);
         if (value > minThreshold && value < maxThreshold) return true;
-
         return false;
     }
 
