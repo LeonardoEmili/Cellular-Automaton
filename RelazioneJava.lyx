@@ -1,0 +1,556 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Editor per Automi Cellulari
+\end_layout
+
+\begin_layout Author
+Domenico Bruzzese
+\begin_inset Newline newline
+\end_inset
+
+Fabio Capirchio
+\begin_inset Newline newline
+\end_inset
+
+Gabriele Fraracci
+\begin_inset Newline newline
+\end_inset
+
+Leonardo Emili
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduzione
+\end_layout
+
+\begin_layout Standard
+Il progetto consiste nella creazione di un editor per automi cellulari e
+ di una GUI.
+ L'intero progetto é fortemente 
+\begin_inset Formula $user-oriented$
+\end_inset
+
+, l'editor lascia libero l'utente di personalizarne ogni aspetto: dalla
+ personalizzazione grafica fino a quella strutturale che gestisce il flusso
+ della simulazione.
+\begin_inset Newline newline
+\end_inset
+
+L'idea é quella di eseguire una simulazione che utilizzi i concetti di multithre
+ading, concorrenza nonché i pilastri della 
+\begin_inset Formula $OOP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tecnologie utilizzate
+\end_layout
+
+\begin_layout Standard
+L'intero progetto é stato scritto in 
+\begin_inset Formula $Java$
+\end_inset
+
+ 9, assieme a: 
+\begin_inset Formula $JavaFx$
+\end_inset
+
+ utilizzato per creare la GUI, 
+\begin_inset Formula $FXML$
+\end_inset
+
+ che ha contribuito ha formare la struttura del programma, 
+\begin_inset Formula $CSS$
+\end_inset
+
+ per le personalizzazioni grafiche 
+\begin_inset Formula $LaTex$
+\end_inset
+
+ per la stesura di questa relazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bigskip
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Guida all'uso
+\end_layout
+
+\begin_layout Standard
+Il programma ha un'interfaccia semplice e intuitiva ed é organizzato in
+ 3 stadi logici: un primo stadio dove l'utente sceglie in che modalitá eseguire
+ il programma, un secondo stadio dove vengono recuperate le informazioni
+ necessarie affinché la simulazione possa iniziare, ed infine un ultimo
+ stadio di interazione con il simulatore.
+\end_layout
+
+\begin_layout Subsection
+Schermata di benvenuto
+\end_layout
+
+\begin_layout Subsubsection
+Crea nuovo profilo: l'utente viene guidato in una procedura che gli permette
+ di personalizzare i colori associati agli stati e le direttive che regolano
+ lo sviluppo dell'automa.
+ Al termine viene chiesto all'utente se si desidera preservare queste configuraz
+ioni per poterle riutilizzare in futuro, in caso contrario verrá creata
+ una "shallow copy" delle configurazioni che verrá poi distrutta al termine
+ dell'esecuzione del programma.
+\end_layout
+
+\begin_layout Subsubsection
+Carica profilo: il programma carica le configurazioni utente giá esistenti
+ per essere poi fornite al simulatore.
+\end_layout
+
+\begin_layout Subsubsection
+Scegli automa: viene visualizzata una raccolta di automi cellulari con configura
+zioni e colori di default.
+\end_layout
+
+\begin_layout Subsection
+Schermata degli input
+\end_layout
+
+\begin_layout Standard
+In questa sezione l'utente é libero di scegliere gli stati delle cellule
+ attraverso un'idea piú intuitiva: la scelta dei colori che le cellule dovranno
+ avere, in questo modo si interagisce direttamente con il loro ciclo di
+ vita.
+ É inoltre possibile personalizzare i principi che regolano le transizioni
+ di stato.
+\begin_inset Newline newline
+\end_inset
+
+Queste idee verranno trattate in maniera piú dettagliata nei paragrafi successiv
+i.
+\end_layout
+
+\begin_layout Subsection
+Schermata del simulatore
+\end_layout
+
+\begin_layout Standard
+Il protagonista, la tela del quadro é dove avviene la scena e dove é possibile
+ assistere alla simulazione.
+ Questa é circondata ai lati da pulsanti che regolano le configurazioni
+ iniziali, mentre all'estremo inferiore sono localizzati i pulsanti di controllo
+ con i quali é possibile interagire direttamente con la simulazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Automi cellulari
+\end_layout
+
+\begin_layout Standard
+Nel seguito assumiamo che ciascuna cellula appartenga ad un unico stato,
+ i motivi legati a questo dettaglio sono molteplici e la ragione apparirá
+ piú chiaro nel 
+\emph on
+paragrafo 6
+\emph default
+ dove la questione viene trattata piú in dettaglio.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Nel testo viene inoltre utilizzata di frequente la nozione di vicino definita
+ da 
+\emph on
+Edward Forrest Moore
+\emph default
+, pioniere della 
+\emph on
+teoria degli automi cellulari
+\emph default
+: il vicinato di una cella 
+\begin_inset Formula $C$
+\end_inset
+
+ é composto da 9 celle, la cella centrale 
+\begin_inset Formula $C$
+\end_inset
+
+ e dalle 8 celle che lo circondano.
+\end_layout
+
+\begin_layout Subsection
+Game of Life
+\end_layout
+
+\begin_layout Standard
+L'automa sviluppato dal matematico 
+\emph on
+John Conway 
+\emph default
+é uno dei pilastri della collezione, l'apparente semplicitá con cui regole
+ e stati vengono definiti portano all'occhio non pochi risvolti teorici.
+ La scena si svolge su una griglia bidimensionale formata da cellule che
+ possono assumere soltanto due stati: vivo o morto.
+ Le regole di transizione adottate sono le stesse definite in origine dal
+ matematico britannico:
+\end_layout
+
+\begin_layout Itemize
+La cellula che si trova nello stato morto e conta esattamente 3 cellule
+ vive nel suo vicinato transisce nello stato vivo.
+\end_layout
+
+\begin_layout Itemize
+La cellula che si trova nello stato vivo e che ha o un numero di vicini
+ maggiore strettamente di 3 oppure numero di vicini minore strettamente
+ di 2 transisce nello stato morto.
+\end_layout
+
+\begin_layout Itemize
+La cellula che si trova nello stato vivo e conta un numero di vicini pari
+ a 2 o 3 sopravvive alla prossima generazione rimanendo nello stesso stato.
+\end_layout
+
+\begin_layout Subsection
+Circular Redistribution
+\end_layout
+
+\begin_layout Standard
+Descrizione e regole che lo definiscono.
+\end_layout
+
+\begin_layout Subsection
+Cyclic CA
+\end_layout
+
+\begin_layout Standard
+Descrizione e regole che lo definiscono.
+\end_layout
+
+\begin_layout Subsection
+Diffusion Aggregation
+\end_layout
+
+\begin_layout Standard
+Descrizione e regole che lo definiscono.
+\end_layout
+
+\begin_layout Subsection
+H3 Rule
+\end_layout
+
+\begin_layout Standard
+Descrizione e regole che lo definiscono.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Code Snippets
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Teoria degli stati e delle transizioni
+\end_layout
+
+\begin_layout Standard
+Lo scenario precedentemente descritto si basa su due concetti principali:
+ stati e regole di transizione.
+ 
+\end_layout
+
+\begin_layout Subsection
+Gli stati
+\end_layout
+
+\begin_layout Standard
+L'idea di base é che ciasuna cellula al momento della creazione viene associata
+ uno stato che ne regola lo sviluppo.
+ Si noti come in questo modello gli stati non sono solo semplici proprietá
+ di cui ogni cellula dispone, bensí essi sono parte attiva dell'evoluzione
+ dell'automa.
+ Questo implica che in un dato momento 
+\begin_inset Formula $\tau$
+\end_inset
+
+ uno stato 
+\begin_inset Formula $S$
+\end_inset
+
+ puó avere nel proprio dominio 
+\begin_inset Formula $D$
+\end_inset
+
+ un numero indeterminato di cellule che oscilla tra lo 0 e l'intera popolazione
+ di cellule.
+ Nello scenario descritto vengono descritti i casi piú estremi, e logico
+ dunque assumere che in un momento 
+\begin_inset Formula $\tau$
+\end_inset
+
+ lo stato 
+\begin_inset Formula $S$
+\end_inset
+
+ conterá un numero medio di cellule che chiameremo 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ In ogni istante ciascuno stato 
+\begin_inset Formula $S$
+\end_inset
+
+ interroga le proprie cellule e, in base alle regole di transizione definite
+ , quest'ultime sono in grado di abbandonare 
+\begin_inset Formula $S$
+\end_inset
+
+ per essere integrate in un nuovo stato.
+ Questo meccanismo viene eseguito contemporaneamente da parte di tutti gli
+ stati che sono in grado di applicare le proprie regole senza interferire
+ con cellule estranee al proprio dominio.
+ Al termine della procedura tutte le possibili transizioni sono state eseguite
+ e una volta eseguito il refresh globale della scena l'intero 
+\emph on
+algoritmo
+\emph default
+ é pronto a ripartire.
+ Si noti come l'intero processo venga 
+\series bold
+\emph on
+virtualizzato
+\series default
+\emph default
+ da parte degli stati: essi applicano regole su ciascuna delle proprie cellule
+ che a loro volta possono mutare il loro stato interno, ma sará solo al
+ termine di ciascun colpo di clock che le cellule renderanno visibile la
+ loro transizione agli altri stati.
+ Questo meccanismo di mutua esclusione tra gli stati impedisce loro di interferi
+re, rendendo cosí possibile la parallelizzazione dei processi su un'unica
+ griglia.
+\end_layout
+
+\begin_layout Subsection
+Regole di transizione
+\end_layout
+
+\begin_layout Standard
+Le regole di transizione regolano i processi di mutazione delle cellule
+ in ogni momento.
+ Esse possono essere pensate come particolari 
+\emph on
+funzioni matematiche biunivoche 
+\emph default
+definite su un dominio di stati 
+\begin_inset Formula $D$
+\end_inset
+
+ e su un codominio di stati 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ A ciascuno stato é associato, in base regole, un proprio stato di arrivo
+ che puó, eventualmente, coincidere con lo stato di partenza nel caso in
+ cui le regole lo prevedano.
+\begin_inset Newline newline
+\end_inset
+
+Le regole sono completamente personalizzabili e si basano sui pilastri della
+ 
+\series bold
+logica booleana
+\series default
+.
+ Ogni complessa equazione booleana puó essere scomposta in proposizioni
+ piú semplici che prendono il nome di 
+\emph on
+proposizione atomiche
+\emph default
+.
+ Secondo il 
+\emph on
+principio del terzo escluso 
+\emph default
+della logica booleana ciascuna proposizione atomica ha un unico valore di
+ veritá: vero o falso.
+ Il programma é in grado, attraverso una combinazione di molteplici proposizioni
+, di stabilire il valore di veritá di una generica regola o di una combinazione
+ di regole ed di applicarle in tal senso.
+ Alcuni dettagli implementativi a riguardo sono trattati nel 
+\emph on
+Paragrafo 5
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problemi matematici coinvolti
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Curiositá
+\end_layout
+
+\end_body
+\end_document
