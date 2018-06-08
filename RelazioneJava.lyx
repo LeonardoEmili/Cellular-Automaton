@@ -5,6 +5,30 @@
 \save_transient_properties true
 \origin unavailable
 \textclass amsart
+\begin_preamble
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+    language=Java,
+    basicstyle=\scriptsize,
+    upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fullflexible,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\ttfamily,
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\end_preamble
 \use_default_options true
 \begin_modules
 theorems-ams
@@ -385,6 +409,98 @@ Descrizione e regole che lo definiscono.
 
 \begin_layout Section
 Code Snippets
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+    private void comeToMeCA(String className) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		Class<?> C = CellularAutomataProgram.class.forName("simulatorWindow.programs."
+ + className);
+\end_layout
+
+\begin_layout Plain Layout
+
+		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
+Constructor().newInstance());             		simulator.setProgram(currentProgram);
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (ClassNotFoundException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Class " + className + " has not been defined.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (NoSuchMethodException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Constructor not found");
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (IllegalAccessException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (InstantiationException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch (InvocationTargetException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(e.getMessage());
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
