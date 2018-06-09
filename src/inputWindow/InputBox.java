@@ -16,13 +16,13 @@ public class InputBox {
     private static HashMap<String, Integer> map;
     private static Type type = new TypeToken<HashMap<String, Integer>>() {}.getType();
 
-    public static void open(Type type) {
+    /*public static void open(Type type) {
         try {
             JsonReader reader = new JsonReader(new FileReader("Configurations/"+ fileName + ".stb"));
             HashMap<String, Integer> map_file = new Gson().fromJson(reader, type);
             System.out.println(map_file.get("States"));
             } catch (FileNotFoundException ex) {
-            MessageBox.show("File does not exist", "Error");
+            ColorPickerBox.show("File does not exist", "Error");
         }
     }
 
@@ -30,7 +30,7 @@ public class InputBox {
         if (customFileName.length() == 0)
             customFileName = fileName;
         if (fileAlreadyExists(customFileName)) {
-            MessageBox.show("This profile name already exists, choose another one.", "Profile Name already taken");
+            ColorPickerBox.show("This profile name already exists, choose another one.", "Profile Name already taken");
             return;
         }
         map = new HashMap<>();
@@ -38,7 +38,7 @@ public class InputBox {
         map.put("Width", Integer.parseInt(s2.valueProperty().asString("%.0f").getValue()));
         map.put("States", Integer.parseInt(s3.valueProperty().asString("%.0f").getValue()));
         jsonDump(map, type, customFileName);
-    }
+    } */
 
     public static void jsonDump(HashMap<String, Integer> map, Type type, String customFileName) {
 

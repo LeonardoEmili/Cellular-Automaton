@@ -11,82 +11,52 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inputWindow.FXMLIPController">
-   <children>
-      <Label text="Input Form" textFill="WHITE">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #ececec;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inputWindow.FXMLIPController">
+   <top>
+      <Label text="States" textFill="#111010" BorderPane.alignment="CENTER">
          <font>
-            <Font name="Kalimati" size="42.0" />
+            <Font size="42.0" />
          </font>
-         <VBox.margin>
-            <Insets bottom="5.0" />
-         </VBox.margin>
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </BorderPane.margin>
       </Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
+   </top>
+   <center>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colorCol" prefWidth="100.0" text="Color" />
+            <TableColumn fx:id="hexCol" prefWidth="200.0" text="Hex Value" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="30.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <left>
+      <VBox prefHeight="417.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Height" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-            <Slider fx:id="slider1" prefHeight="57.0" prefWidth="235.0" />
-            <Label fx:id="label1" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
-         <children>
-            <Label text="Width" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-            <Slider fx:id="slider2" prefHeight="57.0" prefWidth="235.0" />
-            <Label fx:id="label2" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
-         <children>
-            <Label text="States" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-            <Slider fx:id="slider3" prefHeight="57.0" prefWidth="235.0" />
-            <Label fx:id="label3" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi" size="35.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
-         <children>
-            <TextField fx:id="profileName" alignment="CENTER" promptText="Profile's Name">
+            <Button mnemonicParsing="false" onAction="#addRow" prefHeight="40.0" prefWidth="100.0" text="ADD">
                <font>
                   <Font size="15.0" />
-               </font>
-            </TextField>
-            <Button mnemonicParsing="false" onAction="#save" text="Save Profile">
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="REMOVE">
                <font>
-                  <Font size="20.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="50.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Next">
+                  <Font size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#showResult" prefHeight="40.0" prefWidth="100.0" text="NEXT">
                <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#showHome" prefHeight="40.0" prefWidth="100.0" text="BACK">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
          </children>
-      </HBox>
-   </children>
-</VBox>
+      </VBox>
+   </right>
+</BorderPane>

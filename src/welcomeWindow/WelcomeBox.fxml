@@ -11,7 +11,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" text="Cool Title">
+            <Label alignment="CENTER" text="Cellular Automata Editor">
                <font>
                   <Font name="DejaVu Sans Bold" size="52.0" />
                </font>
@@ -24,22 +24,22 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <Button fx:id="handleProfiles" alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#showInputForm" text="Create Profile">
+            <Button fx:id="handleProfiles" alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" onAction="#showInputForm" text="Create Profile">
                <font>
-                  <Font size="18.0" />
+                  <Font name="LMSans17-Regular" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" text="Load Profile">
+            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" text="Load Profile">
                <font>
-                  <Font size="18.0" />
+                  <Font name="LMSans17-Regular" size="20.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#showAutomataCollection" text="Choose Automata">
+            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" onAction="#showAutomataCollection" text="Choose Automata">
                <font>
-                  <Font size="18.0" />
+                  <Font name="LMSans17-Regular" size="20.0" />
                </font>
             </Button>
          </children>
