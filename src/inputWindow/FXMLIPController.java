@@ -51,6 +51,7 @@ public class FXMLIPController implements Initializable {
         hexCol.setStyle( "-fx-alignment: CENTER;");
         data = FXCollections.observableArrayList();
         table.setItems(data);
+        addCallBack();
     }
 
     public void addRow() {
@@ -62,48 +63,18 @@ public class FXMLIPController implements Initializable {
             State s = new State(data.size() + 1, hexVal, hexVal);
             data.add(s);
         } catch (NullPointerException ex) { }
+        table.refresh();
+    }
 
-        /*
-        TableColumn secondColoumn = table.getColumns().get(1);
-        //secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
-
-        secondColoumn.setCellFactory(new Callback<TableColumn, TableCell>() {
-            public TableCell call(TableColumn param) {
-                return new TableCell<State, String>() {
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!isEmpty()) {
-                            System.out.println(getIndex());
-                            setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
-                        }
-                    }
-                };
-            }
-        }); */
-
-        colorCol.setCellFactory(column -> {
-            return new TableCell<State, String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    //Write your condition there,that is an example
-                    if (item != null) {
-                        //setStyle("-fx-background-color: yellow");
-                        setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
-                    }
-                }
-            };
-        });
-
+    public void clearTable() {
+        data.clear();
     }
 
     public void removeRow(Event e) {
         State selectedItem = table.getSelectionModel().getSelectedItem();
         table.getItems().removeAll(selectedItem);
         System.out.println(data.toString());
+        table.refresh();
     }
 
     public void showResult() {
@@ -128,6 +99,43 @@ public class FXMLIPController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void addCallBack() {
+
+        /*
+        TableColumn secondColoumn = table.getColumns().get(1);
+        //secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
+
+        secondColoumn.setCellFactory(new Callback<TableColumn, TableCell>() {
+            public TableCell call(TableColumn param) {
+                return new TableCell<State, String>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            System.out.println(getIndex());
+                            setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
+                        }
+                    }
+                };
+            }
+        }); */
+        colorCol.setCellFactory(column -> {
+            return new TableCell<State, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    //Write your condition there,that is an example
+                    if (item != null) {
+                        //setStyle("-fx-background-color: yellow");
+                        setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
+                    }
+                }
+            };
+        });
     }
 
 }
