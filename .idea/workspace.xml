@@ -11,9 +11,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/resources/style.css" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/resources/style.css" />
       <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/welcomeWindow/WelcomeBox.fxml" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/welcomeWindow/WelcomeBox.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/ColorPickerBox.java" afterPath="$PROJECT_DIR$/src/inputWindow/ColorPickerBox.java" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" afterPath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/InputBox.fxml" afterPath="$PROJECT_DIR$/src/inputWindow/InputBox.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ColorPickerBox.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ColorPickerBox.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inputWindow/ColorPickerBox.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+              <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="State.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/State.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-138">
@@ -420,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528567232379</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed colors in States-TableView">
+      <created>1528570612006</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528570612006</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -466,7 +470,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update" />
     <MESSAGE value="Big Update - Added Input form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big Update - Added Input form" />
+    <MESSAGE value="Fixed colors in States-TableView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed colors in States-TableView" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -818,24 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#754#755#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inputWindow/FXMLIPController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -851,9 +838,27 @@
     <entry file="file://$PROJECT_DIR$/src/inputWindow/ColorPickerBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
           </folding>
         </state>
       </provider>
