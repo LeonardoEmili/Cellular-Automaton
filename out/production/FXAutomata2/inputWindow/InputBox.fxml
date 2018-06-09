@@ -48,6 +48,11 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
+            <Button mnemonicParsing="false" onAction="#clearTable" prefHeight="40.0" prefWidth="100.0" text="Clear">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
             <Button mnemonicParsing="false" onAction="#showResult" prefHeight="40.0" prefWidth="100.0" text="Next">
                <font>
                   <Font size="15.0" />

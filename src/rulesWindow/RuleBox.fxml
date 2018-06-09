@@ -119,23 +119,7 @@
                   <Insets bottom="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#goRuleWin" text="Return to States selection">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#nextState" text="Next State / Proceed">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </HBox>
+            <HBox fx:id="statesBar2" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -143,10 +127,19 @@
       </VBox>
    </center>
    <bottom>
-      <HBox fx:id="statesBar2" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="15.0" />
-         </BorderPane.margin>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goRuleWin" text="Return to States selection">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#nextState" text="Next State / Proceed">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
       </HBox>
    </bottom>
 </BorderPane>
