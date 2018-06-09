@@ -38,21 +38,21 @@
       <VBox prefHeight="417.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="50.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#addRow" prefHeight="40.0" prefWidth="100.0" text="ADD">
+            <Button mnemonicParsing="false" onAction="#addRow" prefHeight="40.0" prefWidth="100.0" text="Add">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="REMOVE">
+            <Button mnemonicParsing="false" onAction="#removeRow" prefHeight="40.0" prefWidth="100.0" text="Remove">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#showResult" prefHeight="40.0" prefWidth="100.0" text="NEXT">
+            <Button mnemonicParsing="false" onAction="#showResult" prefHeight="40.0" prefWidth="100.0" text="Next">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#showHome" prefHeight="40.0" prefWidth="100.0" text="BACK">
+            <Button mnemonicParsing="false" onAction="#showHome" prefHeight="40.0" prefWidth="100.0" text="Back">
                <font>
                   <Font size="15.0" />
                </font></Button>

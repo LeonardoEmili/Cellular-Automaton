@@ -11,13 +11,13 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane" maxHeight="250.0" maxWidth="250.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #fff;" />
+            <Pane fx:id="pane" maxHeight="250.0" maxWidth="250.0" prefHeight="250.0" prefWidth="250.0" />
             <ColorPicker fx:id="colorPicker" onAction="#changeBG">
                <VBox.margin>
                   <Insets bottom="15.0" top="30.0" />
                </VBox.margin>
             </ColorPicker>
-            <Button mnemonicParsing="false" onAction="#sendDATA" text="CONFIRM" />
+            <Button mnemonicParsing="false" onAction="#sendDATA" text="Confirm" />
          </children>
       </VBox>
    </center>

@@ -28,7 +28,7 @@
                   <Insets left="25.0" right="25.0" top="10.0" />
                </BorderPane.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Label fx:id="ruleNum">
                      <font>
@@ -88,9 +88,15 @@
                               <Button mnemonicParsing="false" onAction="#getAnyNearby" text="NEXT" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="50.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="50.0">
                            <children>
-                              <Label text="oppure" />
+                              <Label text="oppure">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -109,6 +115,9 @@
                      </children>
                   </VBox>
                </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                <children>
@@ -123,6 +132,9 @@
                      </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
             </HBox>
          </children>
          <BorderPane.margin>
@@ -133,7 +145,7 @@
    <bottom>
       <HBox fx:id="statesBar2" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="10.0" />
+            <Insets bottom="15.0" />
          </BorderPane.margin>
       </HBox>
    </bottom>

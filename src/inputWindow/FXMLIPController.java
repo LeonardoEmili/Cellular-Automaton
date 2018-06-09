@@ -2,22 +2,22 @@ package inputWindow;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import rulesWindow.RuleBoxController;
 import simulatorWindow.utils.State;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -47,6 +47,8 @@ public class FXMLIPController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));
         colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));
         hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));
+        idCol.setStyle( "-fx-alignment: CENTER;");
+        hexCol.setStyle( "-fx-alignment: CENTER;");
         data = FXCollections.observableArrayList();
         table.setItems(data);
     }
@@ -61,8 +63,9 @@ public class FXMLIPController implements Initializable {
             data.add(s);
         } catch (NullPointerException ex) { }
 
+        /*
         TableColumn secondColoumn = table.getColumns().get(1);
-        secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
+        //secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
 
         secondColoumn.setCellFactory(new Callback<TableColumn, TableCell>() {
             public TableCell call(TableColumn param) {
@@ -72,13 +75,35 @@ public class FXMLIPController implements Initializable {
                     public void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
                         if (!isEmpty()) {
+                            System.out.println(getIndex());
                             setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
                         }
                     }
                 };
             }
+        }); */
+
+        colorCol.setCellFactory(column -> {
+            return new TableCell<State, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    //Write your condition there,that is an example
+                    if (item != null) {
+                        //setStyle("-fx-background-color: yellow");
+                        setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
+                    }
+                }
+            };
         });
 
+    }
+
+    public void removeRow(Event e) {
+        State selectedItem = table.getSelectionModel().getSelectedItem();
+        table.getItems().removeAll(selectedItem);
+        System.out.println(data.toString());
     }
 
     public void showResult() {
