@@ -6,9 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 import rulesWindow.RuleBoxController;
 import simulatorWindow.utils.State;
 
@@ -48,11 +52,33 @@ public class FXMLIPController implements Initializable {
     }
 
     public void addRow() {
-        String hexVal = "" + mb.show();
-        if (hexVal.equals("null"))
-            return;
-        State s = new State(data.size()+1, "42", hexVal);
-        data.add(s);
+        try {
+            String hexVal = mb.show().toString();
+            hexVal = hexVal.substring(0, hexVal.length() - 2);
+            if (hexVal.equals("null"))
+                return;
+            State s = new State(data.size() + 1, hexVal, hexVal);
+            data.add(s);
+        } catch (NullPointerException ex) { }
+
+        TableColumn secondColoumn = table.getColumns().get(1);
+        secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
+
+        secondColoumn.setCellFactory(new Callback<TableColumn, TableCell>() {
+            public TableCell call(TableColumn param) {
+                return new TableCell<State, String>() {
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
+                        }
+                    }
+                };
+            }
+        });
+
     }
 
     public void showResult() {
