@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inputWindow.ColorPickerBoxController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="pane" maxHeight="250.0" maxWidth="250.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #fff;" />
+            <ColorPicker fx:id="colorPicker" onAction="#changeBG">
+               <VBox.margin>
+                  <Insets bottom="15.0" top="30.0" />
+               </VBox.margin>
+            </ColorPicker>
+            <Button mnemonicParsing="false" onAction="#sendDATA" text="CONFIRM" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rulesWindow.RuleBoxController">
+   <top>
+      <Label text="Rules" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <HBox fx:id="statesBar" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;" BorderPane.alignment="TOP_CENTER">
+               <BorderPane.margin>
+                  <Insets left="25.0" right="25.0" top="10.0" />
+               </BorderPane.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label fx:id="ruleNum">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="º">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="regola per lo stato num.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stateNum">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxWidth="580.0" prefHeight="200.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" maxHeight="350.0" maxWidth="160.0" prefHeight="200.0" prefWidth="160.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="16.0">
+                           <children>
+                              <RadioButton fx:id="LTtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                              <RadioButton fx:id="CTtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                              <RadioButton fx:id="RTtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="16.0">
+                           <children>
+                              <RadioButton fx:id="LCtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                              <RadioButton contentDisplay="CENTER" disable="true" mnemonicParsing="false" />
+                              <RadioButton fx:id="RCtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="16.0">
+                           <children>
+                              <RadioButton fx:id="LBtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                              <RadioButton fx:id="CBtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                              <RadioButton fx:id="RBtoggle" contentDisplay="CENTER" mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+                              <TextField fx:id="input" maxWidth="160.0" prefWidth="160.0" promptText="Numeric value" />
+                              <Button mnemonicParsing="false" onAction="#getAnyNearby" text="NEXT" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="50.0">
+                           <children>
+                              <Label text="oppure" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label maxWidth="190.0" prefWidth="190.0" text="Procedi con i specifici">
+                                 <HBox.margin>
+                                    <Insets right="130.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#getThoseNearby" text="NEXT" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#goRuleWin" text="Return to States selection">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#nextState" text="Next State / Proceed">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox fx:id="statesBar2" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
