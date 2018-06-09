@@ -26,7 +26,7 @@
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="colorCol" prefWidth="100.0" text="Color" />
+          <TableColumn fx:id="colorCol" prefWidth="250.0" text="Color" />
             <TableColumn fx:id="hexCol" prefWidth="200.0" text="Hex Value" />
         </columns>
          <BorderPane.margin>

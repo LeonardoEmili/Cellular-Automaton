@@ -8,9 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ea387c28-c280-4f53-ab7b-42dd054fdfb2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/resources/style.css" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/resources/style.css" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/welcomeWindow/WelcomeBox.fxml" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/welcomeWindow/WelcomeBox.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/InputBox.fxml" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/InputBox.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -424,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528570612006</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update">
+      <created>1528570638020</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528570638020</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -468,10 +473,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update" />
     <MESSAGE value="Big Update - Added Input form" />
     <MESSAGE value="Fixed colors in States-TableView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed colors in States-TableView" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
