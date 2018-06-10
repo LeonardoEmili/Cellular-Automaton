@@ -3,7 +3,6 @@ package rulesWindow;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -65,10 +64,14 @@ public class RuleBoxController implements Initializable {
     @FXML
     private RadioButton RBtoggle;
 
+    @FXML
+    private ToggleButton NOTRule;
+
     private static ObservableList<State> states;
     private static ArrayList<String> choiceItems;
     private final int defaultStateValue = 0;
     private final int defaultRuleValue = 1;
+    private final int defaultNotRuleValue = 0;
     private final int defaultSelectedStateValue = -1;
     private IntegerProperty currentState;
     private IntegerProperty currentRule;
@@ -147,10 +150,11 @@ public class RuleBoxController implements Initializable {
                 System.out.println("No selected State");
                 return;
             }
-
+            System.out.println(NOTRule.isSelected());
             // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
-            int[] newRule = new int[] {0, choiceItems.indexOf(choiceBox.valueProperty().getValue().toString()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
-
+            int[] newRule = new int[] {defaultNotRuleValue, 0, choiceItems.indexOf(choiceBox.valueProperty().getValue().toString()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
+            if (NOTRule.isSelected())
+                newRule[0] = 1;
             System.out.println(Arrays.toString(newRule));       // todo remove
             selectedState = defaultSelectedStateValue;
             cleanSelected();
@@ -181,13 +185,15 @@ public class RuleBoxController implements Initializable {
 
     private int[] makeRule(int counterSelected) {
         // Format: [any|spec,  exactly|at least|not more, how much ,8 neighbors, landing Status]
-        int[] newRule = new int[] {1, -1, counterSelected, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
-        int offset = 3;
+        int[] newRule = new int[] {defaultNotRuleValue, 1, -1, counterSelected, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
+        int offset = 4;
         for (int i = 0; i < 8; i++) {
             int currentIndex = i + offset;
             if (boxArray[i].isSelected())
                 newRule[currentIndex] = 1;
         }
+        if (NOTRule.isSelected())
+            newRule[0] = 1;
         return newRule;
     }
 
@@ -206,15 +212,14 @@ public class RuleBoxController implements Initializable {
                 LCtoggle          , RCtoggle,
                 LBtoggle, CBtoggle, RBtoggle        };
         choiceItems = new ArrayList();
-        choiceItems.add("Esattamente");
-        choiceItems.add("Almeno");
-        choiceItems.add("Non piú");
+        choiceItems.add("Exactly");
+        choiceItems.add("At least");
         currentRule = new SimpleIntegerProperty(defaultRuleValue);
         currentState = new SimpleIntegerProperty(defaultStateValue);
         ruleNum.textProperty().bind(currentRule.asString());
         stateNum.textProperty().bind(currentState.asString());
-        choiceBox.getItems().addAll(choiceItems.get(0), choiceItems.get(1), choiceItems.get(2));
-        choiceBox.setValue("Esattamente");
+        choiceBox.getItems().addAll(choiceItems.get(0), choiceItems.get(1));
+        choiceBox.setValue("Exactly");
         if (states.size() > 0) {
             createUpperHBox();
             createLowerHBox();
@@ -239,10 +244,10 @@ public class RuleBoxController implements Initializable {
     }
 
     private void deSelectAll() {
-        // Deselect the neighbors
         for (RadioButton r: boxArray){
             r.setSelected(false);
         }
+        NOTRule.setSelected(false);
     }
 
     public void goRuleWin() {

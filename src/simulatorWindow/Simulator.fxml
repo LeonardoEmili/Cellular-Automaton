@@ -4,7 +4,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -42,14 +41,14 @@
          <children>
             <HBox alignment="CENTER" prefWidth="600.0" spacing="70.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goToCACollection" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: transparent;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/icons/if_Menu_green_1891031.png" />
+                              <Image url="@../resources/icons/home.png" />
                            </image>
                         </ImageView>
                      </graphic>

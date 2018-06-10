@@ -119,10 +119,10 @@ public class SimulatorController implements Initializable{
         }
     }
 
-    public void goToCACollection() {
+    public void goHome() {
         // todo all threads have to be stopped before doing any switch of scene
         try {
-            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/CAutomatasWindow/CAutomatas.fxml"));
+            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/welcomeWindow/WelcomeBox.fxml"));
             Stage window = (Stage)(b1.getScene().getWindow());
             window.setWidth(920);
             window.setHeight(520);

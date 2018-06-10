@@ -40,5 +40,9 @@ public class State {
         }
     }
 
+    public void setID(int id) {
+        this.id = id;
+    }
+
 
 }

@@ -11,13 +11,11 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 import rulesWindow.RuleBoxController;
 import simulatorWindow.utils.State;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -62,7 +60,10 @@ public class FXMLIPController implements Initializable {
                 return;
             State s = new State(data.size() + 1, hexVal, hexVal);
             data.add(s);
-        } catch (NullPointerException ex) { }
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
+        refreshIndexes();
         table.refresh();
     }
 
@@ -74,6 +75,7 @@ public class FXMLIPController implements Initializable {
         State selectedItem = table.getSelectionModel().getSelectedItem();
         table.getItems().removeAll(selectedItem);
         System.out.println(data.toString());
+        refreshIndexes();
         table.refresh();
     }
 
@@ -103,7 +105,6 @@ public class FXMLIPController implements Initializable {
 
     private void addCallBack() {
 
-
         colorCol.setCellFactory(column -> {
             return new TableCell<>() {
                 @Override
@@ -111,11 +112,18 @@ public class FXMLIPController implements Initializable {
                     super.updateItem(item, empty);
 
                     if (item != null) {
-                        setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
+                        setStyle("-fx-background-color: #"+ item.substring(2, item.length()) + ";");
                     }
                 }
             };
         });
+    }
+
+    private void refreshIndexes() {
+        for (int i = 0; i < data.size(); i++) {
+            State currentState = data.get(i);
+            currentState.setID(i+1);
+        }
     }
 
 }
