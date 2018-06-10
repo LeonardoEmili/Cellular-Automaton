@@ -103,34 +103,14 @@ public class FXMLIPController implements Initializable {
 
     private void addCallBack() {
 
-        /*
-        TableColumn secondColoumn = table.getColumns().get(1);
-        //secondColoumn.setCellValueFactory(new PropertyValueFactory<State,String>("colorCol"));
 
-        secondColoumn.setCellFactory(new Callback<TableColumn, TableCell>() {
-            public TableCell call(TableColumn param) {
-                return new TableCell<State, String>() {
-
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!isEmpty()) {
-                            System.out.println(getIndex());
-                            setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
-                        }
-                    }
-                };
-            }
-        }); */
         colorCol.setCellFactory(column -> {
-            return new TableCell<State, String>() {
+            return new TableCell<>() {
                 @Override
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
 
-                    //Write your condition there,that is an example
                     if (item != null) {
-                        //setStyle("-fx-background-color: yellow");
                         setStyle("-fx-background-color: #"+ item.toString().substring(2, item.length()) + ";");
                     }
                 }

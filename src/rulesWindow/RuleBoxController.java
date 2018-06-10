@@ -109,13 +109,16 @@ public class RuleBoxController implements Initializable {
     }
 
     private void setSelected(HBox bar, String id) {
-        for (Node n: bar.getChildren()) {
-            Rectangle rr = (Rectangle)n;
+        int index = 0;
+        for (int i = 0; i < bar.getChildren().size(); i++) {
+            Rectangle rr = (Rectangle)bar.getChildren().get(i);
+            if (rr.isHover())
+                index = i;
             rr.setStyle("-fx-border-color: none;");     // Probably to fix, should look like as fx-stroke ..
         }
-        Rectangle r = (Rectangle)(bar.getChildren().get(Integer.parseInt(id)-1));
+        Rectangle r = (Rectangle)(bar.getChildren().get(index));
         r.setStyle("-fx-stroke: yellow; -fx-stroke-width: 2;");
-        selectedState = Integer.parseInt(id)-1;
+        selectedState = index;
     }
 
     public void nextState() {
