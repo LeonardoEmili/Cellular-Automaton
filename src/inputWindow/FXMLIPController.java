@@ -1,5 +1,7 @@
 package inputWindow;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +13,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.skin.TableHeaderRow;
+import javafx.scene.layout.Pane;
 import rulesWindow.RuleBoxController;
 import simulatorWindow.utils.State;
 
@@ -148,8 +152,9 @@ public class FXMLIPController implements Initializable {
                     String newVal = t.getNewValue();
                     if (isValidID(newVal)) {
                         State currentState = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        int index = searchForID(newVal);
                         currentState.setNewID(newVal);
-                        State next = data.get(searchForID(newVal));
+                        State next = data.get(index);
                         currentState.setNextColor(next.getColorCol());
                         currentState.setNextState(next);
 
@@ -157,6 +162,9 @@ public class FXMLIPController implements Initializable {
                     table.refresh();
                 }
         );
+        for (TableColumn<?, ?> t: table.getColumns()) {
+            t.setReorderable(false);
+        }
     }
 
     private boolean isValidID(String id) {          // Looks if the user-chosen ID is correct or not
@@ -187,13 +195,15 @@ public class FXMLIPController implements Initializable {
 
         for (int i = 0; i < data.size(); i++) {
             State currentState = data.get(i);
-            try {
-                currentState.setNewID(String.valueOf(data.indexOf(currentState.getNextState())+1));
-            } catch (Error ex) {
-                System.out.println("Stato non piú presente");
+            int index = data.indexOf(currentState.getNextState());
+            if (index == -1) {
                 currentState.setNewID(currentState.getIdCol());
-            }
+                currentState.setNextState(currentState);
+                currentState.setNextColor(currentState.getColorCol());
+            } else
+                currentState.setNewID(String.valueOf(index+1));
         }
+
     }
 
 

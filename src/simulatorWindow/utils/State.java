@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class State {
 
+    private static String defaultMSG = "NOT SET OR EQUAL TO ID";
     private int id;         // IDs start counting from 1.. pay attention
     private int nextId;
     private String color;
@@ -22,7 +23,6 @@ public class State {
         this.hexValue = hexValue;
     }
 
-
     public String getIdCol() {
         return String.valueOf(id);
     }
@@ -33,7 +33,7 @@ public class State {
 
     public String getNextColorCol() {
         if (color.equals(nextColor))
-            return "NOT SET OR EQUAL TO ID";
+            return defaultMSG;
         else
             return nextColor;
     }
