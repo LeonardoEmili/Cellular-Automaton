@@ -129,7 +129,7 @@ public class RuleBoxController implements Initializable {
             }
             // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
             int[] newRule = new int[] {defaultNotRuleValue, 0, choiceItems.indexOf(choiceBox.valueProperty().getValue()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
-            if (NOTRule.isSelected())
+            if (NOTRule.isSelected())           // ToggleButton
                 newRule[0] = 1;
             System.out.println(Arrays.toString(newRule));       // todo remove
             selectedState = defaultSelectedStateValue;

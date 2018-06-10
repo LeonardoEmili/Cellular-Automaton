@@ -10,6 +10,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import rulesWindow.RuleBoxController;
 import simulatorWindow.utils.State;
 
@@ -32,6 +33,12 @@ public class FXMLIPController implements Initializable {
     @FXML
     private TableColumn<State, String> hexCol;
 
+    @FXML
+    private TableColumn<State, String> nextIdCol;
+
+    @FXML
+    private TableColumn<State, String> nextColorCol;
+
 
     private ObservableList<State> data;
     private ColorPickerBox mb = new ColorPickerBox();
@@ -43,8 +50,13 @@ public class FXMLIPController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));         // This column value comes from getIdCol in State
         colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));   // This column value comes from getColorCol in State
         hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));       // This column value comes from getHexCol in State
+        nextIdCol.setCellValueFactory(new PropertyValueFactory<>("nextIdCol"));       // This column value comes from getNextIdCol in State
+        nextColorCol.setCellValueFactory(new PropertyValueFactory<>("nextColorCol"));   // This column value comes from getNextColorCol in State
         idCol.setStyle( "-fx-alignment: CENTER;");      // GUI stuff
         hexCol.setStyle( "-fx-alignment: CENTER;");     // GUI stuff
+        nextIdCol.setStyle( "-fx-alignment: CENTER;");  // GUI stuff
+        table.setEditable(true);
+        nextColorCol.setStyle( "-fx-alignment: CENTER;");  // GUI stuff
         data = FXCollections.observableArrayList();
         table.setItems(data);       // Table has its data, the state list
         addCallBack();      // Useful for keeping the tabled always up-to-date
@@ -84,7 +96,6 @@ public class FXMLIPController implements Initializable {
             MessageBox.show("Choose at least one State to continue!", "State required", 20);
             return;
         }
-
         RuleBoxController.setStates(data);      // Passes the State's list to next window
         try {
             Parent anotherRoot = FXMLLoader.load(getClass().getResource("/rulesWindow/RuleBox.fxml"));
@@ -117,13 +128,73 @@ public class FXMLIPController implements Initializable {
         });
 
 
+        nextColorCol.setCellFactory(column -> new TableCell<>() {       // Eventually updates the next color row
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item != null) {
+                    if (item.contains("NOT"))
+                        setText(item);
+                    else
+                        setStyle("-fx-background-color: #"+ item.substring(2, item.length()) + ";");
+                }
+            }
+        });
+
+        nextIdCol.setCellFactory(TextFieldTableCell.<State>forTableColumn());       // Update next color row
+        nextIdCol.setOnEditCommit(
+                t -> {
+                    String newVal = t.getNewValue();
+                    if (isValidID(newVal)) {
+                        State currentState = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        currentState.setNewID(newVal);
+                        State next = data.get(searchForID(newVal));
+                        currentState.setNextColor(next.getColorCol());
+                        currentState.setNextState(next);
+
+                    }
+                    table.refresh();
+                }
+        );
     }
 
-    private void refreshIndexes() {
+    private boolean isValidID(String id) {          // Looks if the user-chosen ID is correct or not
+        for (State s: table.getItems()) {
+            if (s.getIdCol().equals(id))
+                return true;
+        }
+        return false;
+    }
+
+    private int searchForID(String newID) {     // Utility methods that search a State by its ID
+        int index = 0;
+        for (int i = 0; i < data.size(); i++) {
+            State s = data.get(i);
+            if (s.getIdCol().equals(newID)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    private void refreshIndexes() {         // Utility function
         for (int i = 0; i < data.size(); i++) {
             State currentState = data.get(i);
             currentState.setID(i+1);
         }
+
+        for (int i = 0; i < data.size(); i++) {
+            State currentState = data.get(i);
+            try {
+                currentState.setNewID(String.valueOf(data.indexOf(currentState.getNextState())+1));
+            } catch (Error ex) {
+                System.out.println("Stato non piú presente");
+                currentState.setNewID(currentState.getIdCol());
+            }
+        }
     }
+
 
 }

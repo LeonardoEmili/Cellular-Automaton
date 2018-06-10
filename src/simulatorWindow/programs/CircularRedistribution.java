@@ -164,8 +164,6 @@ public class CircularRedistribution extends CellularAutomataProgram {
 
 
 
-
-
     /* Methods related to the GUI tab */
     public void buildTab(Tab tab) {
         VBox mainLayout = new VBox();
@@ -213,33 +211,13 @@ public class CircularRedistribution extends CellularAutomataProgram {
         interpolationSlider.setBlockIncrement(0.015f);
 
 
-        rotationCheckbox.selectedProperty().addListener(new ChangeListener<>() {
-            public void changed(ObservableValue<? extends Boolean> ov,
-                                Boolean old_val, Boolean new_val) {
-                rotateIndexes = new_val;
-            }
-        });
+        rotationCheckbox.selectedProperty().addListener((ov, old_val, new_val) -> rotateIndexes = new_val);
 
-        minTslider.valueProperty().addListener(new ChangeListener<>() {
-            public void changed(ObservableValue<? extends Number> ov,
-                                Number old_val, Number new_val) {
-                minThreshold = new_val.floatValue();
-            }
-        });
+        minTslider.valueProperty().addListener((ov, old_val, new_val) -> minThreshold = new_val.floatValue());
 
-        maxTslider.valueProperty().addListener(new ChangeListener<>() {
-            public void changed(ObservableValue<? extends Number> ov,
-                                Number old_val, Number new_val) {
-                maxThreshold = new_val.floatValue();
-            }
-        });
+        maxTslider.valueProperty().addListener((ov, old_val, new_val) -> maxThreshold = new_val.floatValue());
 
-        interpolationSlider.valueProperty().addListener(new ChangeListener<>() {
-            public void changed(ObservableValue<? extends Number> ov,
-                                Number old_val, Number new_val) {
-                interpolation = new_val.floatValue();
-            }
-        });
+        interpolationSlider.valueProperty().addListener((ov, old_val, new_val) -> interpolation = new_val.floatValue());
 
         mainLayout.getChildren().addAll(rotationCheckbox, minTlabel, minTslider, maxTlabel, maxTslider, interpolationLabel,
                 interpolationSlider);
