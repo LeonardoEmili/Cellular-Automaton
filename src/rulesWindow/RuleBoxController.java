@@ -102,13 +102,13 @@ public class RuleBoxController implements Initializable {
             r.setWidth(statesBar.getMaxWidth()/states.size());
             r.setFill(Color.web(s.getHexCol(),1.0));
             r.setOnMouseClicked(e -> {
-                setSelected(statesBar2, s.getIdCol());
+                setSelected(statesBar2);
             });
             statesBar2.getChildren().add(r);
         }
     }
 
-    private void setSelected(HBox bar, String id) {
+    private void setSelected(HBox bar) {
         int index = 0;
         for (int i = 0; i < bar.getChildren().size(); i++) {
             Rectangle rr = (Rectangle)bar.getChildren().get(i);

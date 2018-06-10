@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ea387c28-c280-4f53-ab7b-42dd054fdfb2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" afterPath="$PROJECT_DIR$/out/production/FXAutomata2/inputWindow/FXMLIPController.class" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" afterPath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" />
       <change beforePath="$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" afterPath="$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -66,12 +64,12 @@
       <file leaf-file-name="RuleBoxController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+            <state relative-caret-position="204">
+              <caret line="243" column="25" lean-forward="false" selection-start-line="243" selection-start-column="14" selection-end-line="243" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8177#8178#0" expanded="true" />
-                <element signature="e#8278#8279#0" expanded="true" />
+                <element signature="e#8152#8153#0" expanded="true" />
+                <element signature="e#8253#8254#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>root</find>
       <find>css</find>
       <find>butto</find>
       <find>fx:id=&quot;button1&quot;</find>
@@ -139,6 +136,7 @@
       <find>data</find>
       <find>itemS</find>
       <find>item</find>
+      <find>setSelected</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -541,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528580243887</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update - Fixed bug in Rules">
+      <created>1528623054472</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1528623054473</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -588,7 +593,8 @@
     <MESSAGE value="Big Update - Added Input form" />
     <MESSAGE value="Fixed colors in States-TableView" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Update - Fixed bug in Rules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update - Fixed bug in Rules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -952,12 +958,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="243" column="25" lean-forward="false" selection-start-line="243" selection-start-column="14" selection-end-line="243" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8177#8178#0" expanded="true" />
-            <element signature="e#8278#8279#0" expanded="true" />
+            <element signature="e#8152#8153#0" expanded="true" />
+            <element signature="e#8253#8254#0" expanded="true" />
           </folding>
         </state>
       </provider>
