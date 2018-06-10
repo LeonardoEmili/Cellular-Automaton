@@ -34,6 +34,7 @@ public class State {
     }
 
     public void printRules() {
+        System.out.println("---------------");
         System.out.println("Stato numero" + id + " :");
         for (int[] rule: ruleSet) {
             System.out.println(Arrays.toString(rule));

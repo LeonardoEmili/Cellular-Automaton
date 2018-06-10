@@ -7,7 +7,6 @@ import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import simulatorWindow.utils.iVec3;
 
-import java.util.HashMap;
 import java.util.Random;
 
 public abstract class CellularAutomataProgram {

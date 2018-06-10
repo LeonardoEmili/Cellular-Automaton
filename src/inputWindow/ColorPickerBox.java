@@ -1,8 +1,6 @@
 package inputWindow;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.*;
 import javafx.scene.*;
@@ -14,7 +12,6 @@ public class ColorPickerBox {
 
     private static Stage stage;
     private static Color currentColor = new Color(1, 1, 1, 1);      // By default white color is chosen
-    private static Color paneColor = Color.WHITE;
     private static boolean set = false;
 
 

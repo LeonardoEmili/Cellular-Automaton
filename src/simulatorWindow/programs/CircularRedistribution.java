@@ -8,9 +8,6 @@ import javafx.scene.layout.VBox;
 import simulatorWindow.utils.iVec3;
 import simulatorWindow.utils.iVec2;
 
-import java.util.function.UnaryOperator;
-import java.util.regex.Pattern;
-
 public class CircularRedistribution extends CellularAutomataProgram {
     class Cell {
         int  state;    // 0 = non excited,  1 = excited
@@ -216,28 +213,28 @@ public class CircularRedistribution extends CellularAutomataProgram {
         interpolationSlider.setBlockIncrement(0.015f);
 
 
-        rotationCheckbox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+        rotationCheckbox.selectedProperty().addListener(new ChangeListener<>() {
             public void changed(ObservableValue<? extends Boolean> ov,
                                 Boolean old_val, Boolean new_val) {
                 rotateIndexes = new_val;
             }
         });
 
-        minTslider.valueProperty().addListener(new ChangeListener<Number>() {
+        minTslider.valueProperty().addListener(new ChangeListener<>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
                 minThreshold = new_val.floatValue();
             }
         });
 
-        maxTslider.valueProperty().addListener(new ChangeListener<Number>() {
+        maxTslider.valueProperty().addListener(new ChangeListener<>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
                 maxThreshold = new_val.floatValue();
             }
         });
 
-        interpolationSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        interpolationSlider.valueProperty().addListener(new ChangeListener<>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
                 interpolation = new_val.floatValue();

@@ -105,18 +105,18 @@ public class FXMLIPController implements Initializable {
 
     private void addCallBack() {
 
-        colorCol.setCellFactory(column -> {
-            return new TableCell<>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
+        colorCol.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
 
-                    if (item != null) {
-                        setStyle("-fx-background-color: #"+ item.substring(2, item.length()) + ";");
-                    }
+                if (item != null) {
+                    setStyle("-fx-background-color: #"+ item.substring(2, item.length()) + ";");
                 }
-            };
+            }
         });
+
+
     }
 
     private void refreshIndexes() {

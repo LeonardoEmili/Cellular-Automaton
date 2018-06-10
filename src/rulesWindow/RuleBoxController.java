@@ -104,9 +104,7 @@ public class RuleBoxController implements Initializable {
             r.setHeight(statesBar.getMaxHeight());
             r.setWidth(statesBar.getMaxWidth()/states.size());
             r.setFill(Color.web(s.getHexCol(),1.0));
-            r.setOnMouseClicked(e -> {
-                setSelected(statesBar2);
-            });
+            r.setOnMouseClicked(e -> setSelected(statesBar2));
             statesBar2.getChildren().add(r);
         }
     }
@@ -138,7 +136,7 @@ public class RuleBoxController implements Initializable {
             Rectangle rr = (Rectangle)n;
             rr.setStyle("-fx-border-color: none;");     // Probably to fix, should look like as fx-stroke ..
         }
-        Rectangle r = (Rectangle)(statesBar.getChildren().get(currentState.getValue().intValue() -1));  // Select the current state-rect
+        Rectangle r = (Rectangle)(statesBar.getChildren().get(currentState.getValue() -1));  // Select the current state-rect
         r.setStyle("-fx-stroke: yellow; -fx-stroke-width: 2;");
     }
 
@@ -150,9 +148,8 @@ public class RuleBoxController implements Initializable {
                 System.out.println("No selected State");
                 return;
             }
-            System.out.println(NOTRule.isSelected());
             // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
-            int[] newRule = new int[] {defaultNotRuleValue, 0, choiceItems.indexOf(choiceBox.valueProperty().getValue().toString()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
+            int[] newRule = new int[] {defaultNotRuleValue, 0, choiceItems.indexOf(choiceBox.valueProperty().getValue()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
             if (NOTRule.isSelected())
                 newRule[0] = 1;
             System.out.println(Arrays.toString(newRule));       // todo remove

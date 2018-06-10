@@ -1,6 +1,5 @@
 package CAutomatasWindow;
 
-import inputWindow.FXMLIPController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
