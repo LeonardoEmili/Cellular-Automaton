@@ -2,7 +2,6 @@ package inputWindow;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,51 +40,52 @@ public class FXMLIPController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resource) {
 
-        //  label1.textProperty().bind(slider1.valueProperty().asString("%.0f")); may be useful to keep
-        idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));
-        colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));
-        hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));
-        idCol.setStyle( "-fx-alignment: CENTER;");
-        hexCol.setStyle( "-fx-alignment: CENTER;");
+        idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));         // This column value comes from getIdCol in State
+        colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));   // This column value comes from getColorCol in State
+        hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));       // This column value comes from getHexCol in State
+        idCol.setStyle( "-fx-alignment: CENTER;");      // GUI stuff
+        hexCol.setStyle( "-fx-alignment: CENTER;");     // GUI stuff
         data = FXCollections.observableArrayList();
-        table.setItems(data);
-        addCallBack();
+        table.setItems(data);       // Table has its data, the state list
+        addCallBack();      // Useful for keeping the tabled always up-to-date
+
+        //  label1.textProperty().bind(slider1.valueProperty().asString("%.0f")); may be useful to keep for the future
     }
 
     public void addRow() {
         try {
-            String hexVal = mb.show().toString();
-            hexVal = hexVal.substring(0, hexVal.length() - 2);
-            if (hexVal.equals("null"))
+            String hexVal = mb.show().toString();       // Reads the HEX value of the color chosen by the user
+            hexVal = hexVal.substring(0, hexVal.length() - 2);      // Removes the last 2 ff, really don't know why this happens
+            if (hexVal.equals("null"))      // If the color is not picked up, probably unnecessary, keep to be sure
                 return;
-            State s = new State(data.size() + 1, hexVal, hexVal);
-            data.add(s);
+            State s = new State(data.size() + 1, hexVal, hexVal);       // Creates the State
+            data.add(s);        // Add to State list
         } catch (NullPointerException ex) {
-            // Nothing to do here .. user has closed ColorPickerBox before choosing a color.
+            // Nothing to do here .. this happens because user has closed ColorPickerBox before choosing a color.
         }
-        refreshIndexes();
-        table.refresh();
+        refreshIndexes();       // Utility-func which keeps the State-indexes always up-to-date
+        table.refresh();        // Forces the table to do a refresh, useful for keeping color in order
     }
 
     public void clearTable() {
-        data.clear();
+        data.clear();           // Delete every state previously chosen
     }
 
-    public void removeRow() {
+    public void removeRow() {       // Remove the currentSelectedItem from the TableView
         State selectedItem = table.getSelectionModel().getSelectedItem();
-        table.getItems().removeAll(selectedItem);
+        table.getItems().removeAll(selectedItem);       // Probably remove is fine, keep to be sure
         System.out.println(data.toString());        // todo just to visualize the current output, to be removed
-        refreshIndexes();
-        table.refresh();
+        refreshIndexes();       // Utility-func which keeps the State-indexes always up-to-date
+        table.refresh();        // Forces the table to do a refresh, useful for keeping color in order
     }
 
-    public void showResult() {
+    public void showResult() {      // Goes to the next window if at least a State is in the Data collection
         if (data.size() == 0) {
             MessageBox.show("Choose at least one State to continue!", "State required", 20);
             return;
         }
 
-        RuleBoxController.setStates(data);
+        RuleBoxController.setStates(data);      // Passes the State's list to next window
         try {
             Parent anotherRoot = FXMLLoader.load(getClass().getResource("/rulesWindow/RuleBox.fxml"));
             table.getScene().setRoot(anotherRoot);
@@ -103,7 +103,7 @@ public class FXMLIPController implements Initializable {
         }
     }
 
-    private void addCallBack() {
+    private void addCallBack() {        // Keeps table updated
 
         colorCol.setCellFactory(column -> new TableCell<>() {
             @Override

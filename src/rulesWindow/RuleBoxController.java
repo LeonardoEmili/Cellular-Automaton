@@ -68,16 +68,16 @@ public class RuleBoxController implements Initializable {
     @FXML
     private ToggleButton NOTRule;
 
-    private static ObservableList<State> states;
-    private static ArrayList<String> choiceItems;
-    private final int defaultStateValue = 0;
-    private final int defaultRuleValue = 1;
-    private final int defaultNotRuleValue = 0;
-    private final int defaultSelectedStateValue = -1;
-    private IntegerProperty currentState;
-    private IntegerProperty currentRule;
-    private int selectedState = defaultSelectedStateValue;
-    private RadioButton[] boxArray;
+    private static ObservableList<State> states;        // List of States selected by user
+    private static ArrayList<String> choiceItems;       // Items that appears in ChoiceBox
+    private final int defaultStateValue = 0;            // Current state in analysis
+    private final int defaultRuleValue = 1;             // Current state in analysis
+    private final int defaultNotRuleValue = 0;          // If is 0 then NOT is not active, 1 is active
+    private final int defaultSelectedStateValue = -1;   // Default value, if is -1 then no state has been selected
+    private IntegerProperty currentState;               // GUI stuff
+    private IntegerProperty currentRule;                // GUI stuff
+    private int selectedState = defaultSelectedStateValue;  // Integer that select a state from the list
+    private RadioButton[] boxArray;                         // Just a wrapper for buttons, used to loop over them
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
@@ -87,28 +87,8 @@ public class RuleBoxController implements Initializable {
 
     public static void setStates(ObservableList<State> listStates) {
         states = listStates;
-    }
+    }       // Used to pass the States from the previous window
 
-    private void createUpperHBox() {
-        for (State s : states) {
-            Rectangle r = new Rectangle();
-            r.setHeight(statesBar.getMaxHeight());
-            r.setWidth(statesBar.getMaxWidth()/states.size());
-            r.setFill(Color.web(s.getHexCol(),1.0));
-            statesBar.getChildren().add(r);
-        }
-    }
-
-    private void createLowerHBox() {
-        for (State s : states) {
-            Rectangle r = new Rectangle();
-            r.setHeight(statesBar.getMaxHeight());
-            r.setWidth(statesBar.getMaxWidth()/states.size());
-            r.setFill(Color.web(s.getHexCol(),1.0));
-            r.setOnMouseClicked(e -> setSelected(statesBar2));
-            statesBar2.getChildren().add(r);
-        }
-    }
 
     private void setSelected(HBox bar) {
         int index = 0;
@@ -193,9 +173,30 @@ public class RuleBoxController implements Initializable {
         return newRule;
     }
 
+    private void createUpperHBox() {        // Dynamically creates the upper HBox
+        for (State s : states) {
+            Rectangle r = new Rectangle();
+            r.setHeight(statesBar.getMaxHeight());
+            r.setWidth(statesBar.getMaxWidth()/states.size());
+            r.setFill(Color.web(s.getHexCol(),1.0));
+            statesBar.getChildren().add(r);
+        }
+    }
+
+    private void createLowerHBox() {        // Dynamically create the lower HBox, this method adds an eventListener for each Rectangle
+        for (State s : states) {
+            Rectangle r = new Rectangle();
+            r.setHeight(statesBar.getMaxHeight());
+            r.setWidth(statesBar.getMaxWidth()/states.size());
+            r.setFill(Color.web(s.getHexCol(),1.0));
+            r.setOnMouseClicked(e -> setSelected(statesBar2));
+            statesBar2.getChildren().add(r);
+        }
+    }
+
     //--------------------------------UTILITY-METHODS--------------------------------------------------------
 
-    private void cleanSelected() {
+    private void cleanSelected() {      // GUI method to clear all the Rectangle's border
         for (Node n: statesBar2.getChildren()) {
             Rectangle rr = (Rectangle)n;
             rr.setStyle("-fx-border-color: none;");     // Probably to fix, should look like as fx-stroke ..
@@ -216,7 +217,7 @@ public class RuleBoxController implements Initializable {
         stateNum.textProperty().bind(currentState.asString());
         choiceBox.getItems().addAll(choiceItems.get(0), choiceItems.get(1));
         choiceBox.setValue("Exactly");
-        if (states.size() > 0) {
+        if (states.size() > 0) {        // Probably unnecessary, just keep it to be sure
             createUpperHBox();
             createLowerHBox();
         }
@@ -239,14 +240,14 @@ public class RuleBoxController implements Initializable {
         currentRule.setValue(currentRule.getValue()+1);     // Just pass over to the next rule
     }
 
-    private void deSelectAll() {
+    private void deSelectAll() {            // Method called after a rule is made, re-deselect every neighbor
         for (RadioButton r: boxArray){
             r.setSelected(false);
         }
         NOTRule.setSelected(false);
     }
 
-    public void goRuleWin() {
+    public void goRuleWin() {           // Shows the Rule Window
         try {
             Parent anotherRoot = FXMLLoader.load(getClass().getResource("/inputWindow/InputBox.fxml"));
             statesBar.getScene().setRoot(anotherRoot);
