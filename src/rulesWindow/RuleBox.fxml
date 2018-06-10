@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -26,17 +27,17 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="5.0">
                <children>
+                  <Label text="Rule number">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                   <Label fx:id="ruleNum">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label text="º">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label text="regola per lo stato num.">
+                  <Label text="for State number">
                      <font>
                         <Font size="20.0" />
                      </font>

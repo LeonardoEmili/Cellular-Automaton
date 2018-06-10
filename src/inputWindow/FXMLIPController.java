@@ -61,7 +61,7 @@ public class FXMLIPController implements Initializable {
             State s = new State(data.size() + 1, hexVal, hexVal);
             data.add(s);
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
+            // Nothing to do here .. user has closed ColorPickerBox before choosing a color.
         }
         refreshIndexes();
         table.refresh();
@@ -71,17 +71,17 @@ public class FXMLIPController implements Initializable {
         data.clear();
     }
 
-    public void removeRow(Event e) {
+    public void removeRow() {
         State selectedItem = table.getSelectionModel().getSelectedItem();
         table.getItems().removeAll(selectedItem);
-        System.out.println(data.toString());
+        System.out.println(data.toString());        // todo just to visualize the current output, to be removed
         refreshIndexes();
         table.refresh();
     }
 
     public void showResult() {
         if (data.size() == 0) {
-            System.out.println("Seleziona almeno uno stato per continuare!");
+            MessageBox.show("Choose at least one State to continue!", "State required", 20);
             return;
         }
 

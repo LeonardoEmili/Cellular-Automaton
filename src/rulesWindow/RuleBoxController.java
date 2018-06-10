@@ -1,5 +1,6 @@
 package rulesWindow;
 
+import inputWindow.MessageBox;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
@@ -124,10 +125,8 @@ public class RuleBoxController implements Initializable {
 
     public void nextState() {
         if (currentState.getValue() == states.size()) {
-            System.out.println("Non ce ne stanno piú ..");
-            for (State s: states) {
-                s.printRules();
-            }
+            System.out.println("Non ce ne stanno piú ..");      // todo split take data from here
+            for (State s: states) { s.printRules(); }           // todo utility method to visualize rules
             return;
         }
         currentRule.setValue(defaultRuleValue);         // Rule counter re-initializes for-each state
@@ -145,7 +144,7 @@ public class RuleBoxController implements Initializable {
             int value = Integer.parseInt(input.getText());
             input.setStyle("-fx-faint-focus-color: transparent; -fx-focus-color:transparent");
             if (selectedState == -1) {
-                System.out.println("No selected State");
+                MessageBox.show("No State has been selected.","No selected State", 16);
                 return;
             }
             // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
@@ -225,12 +224,12 @@ public class RuleBoxController implements Initializable {
 
     private boolean shouldNotPass(int counterSelected) {        // lol
         if (selectedState == -1) {
-            System.out.println("No selected State");
+            MessageBox.show("No State has been selected.","No selected State", 16);
             return true;
         }
 
         if (counterSelected == 0) {
-            System.out.println("Selezionare almeno un vicino per continuare !");  // todo aggiungere un evento
+            MessageBox.show("Selected at least a cell to continue.","No selected cell", 16);
             return true;
         }
         return false;
