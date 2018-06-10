@@ -6,15 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea387c28-c280-4f53-ab7b-42dd054fdfb2" name="Default" comment="Fixed bug in table section with IDs. More added NOT rule to Rules Stage">
+    <list default="true" id="ea387c28-c280-4f53-ab7b-42dd054fdfb2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" afterPath="$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" />
-      <change beforePath="$PROJECT_DIR$/src/inputWindow/InputBox.fxml" afterPath="$PROJECT_DIR$/src/inputWindow/InputBox.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/rulesWindow/RuleBox.fxml" afterPath="$PROJECT_DIR$/src/rulesWindow/RuleBox.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" afterPath="$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" />
-      <change beforePath="$PROJECT_DIR$/src/simulatorWindow/Simulator.fxml" afterPath="$PROJECT_DIR$/src/simulatorWindow/Simulator.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java" afterPath="$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java" />
-      <change beforePath="$PROJECT_DIR$/src/simulatorWindow/utils/State.java" afterPath="$PROJECT_DIR$/src/simulatorWindow/utils/State.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -610,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528623220020</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed bug in table section with IDs. More added NOT rule to Rules Stage">
+      <created>1528628529245</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1528628529245</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
