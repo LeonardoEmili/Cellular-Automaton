@@ -9,8 +9,6 @@ import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import simulatorWindow.utils.iVec3;
 
-import java.io.*;
-
 public class Simulator {
 
     public CellularAutomataProgram currentProgram;

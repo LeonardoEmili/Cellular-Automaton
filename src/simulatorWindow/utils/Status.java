@@ -2,7 +2,6 @@ package simulatorWindow.utils;
 
 import javafx.scene.paint.Color;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Status extends Thread{
@@ -33,6 +32,7 @@ public class Status extends Thread{
 
     @Override
     public synchronized void run() {
+        if (ruleSet.size() == 0) return;
         while (!isInterrupted()) {
             this.applyRules();          // We apply rules and than wait other processes to finish
             this.cells.clear();         // Clear all the cells inside the Arralist
@@ -117,7 +117,6 @@ public class Status extends Thread{
     }
 
     public void setOperator(){
-        System.out.println(ruleSet.size());
         this.operator = new boolean[2][ruleSet.size()];
         for (int i = 0; i < ruleSet.size(); i++) {
             this.operator[1][i] = this.ruleSet.get(i).and;          // Fill operator with rule.and values

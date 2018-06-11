@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class FXMLWBController implements Initializable{
+public class FXMLWBController implements Initializable {
 
     @FXML
     private Button handleProfiles;
@@ -49,13 +49,26 @@ public class FXMLWBController implements Initializable{
         }
     }
 
-    public static Simulator getSimulator() {
-        return simulator;
-    }
-
-    public void open(){
+    public void open() {             // This function gets called when button LOAD is hit
         ArrayList<Status> statesLoaded = openFile();
         goToSimulation(statesLoaded);
+    }
+
+    private void goToSimulation(ArrayList<Status> arr) {
+        try {
+            simulator.setProgram(new Default(arr, "Default"));
+            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/simulatorWindow/Simulator.fxml"));
+            Stage window = (Stage)(handleProfiles.getScene().getWindow());
+            window.setWidth(900);
+            window.setHeight(700);
+            handleProfiles.getScene().setRoot(anotherRoot);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static Simulator getSimulator() {
+        return simulator;
     }
 
     private ArrayList<Status> openFile() {
@@ -69,19 +82,6 @@ public class FXMLWBController implements Initializable{
             load = new Gson().fromJson(reader, Loader.class);
         } catch (FileNotFoundException ex) { ex.printStackTrace(); }
         return load.parseStates();
-    }
-
-    private void goToSimulation(ArrayList<Status> arr) {
-        try {
-            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/simulatorWindow/Simulator.fxml"));
-            Stage window = (Stage)(handleProfiles.getScene().getWindow());
-            window.setWidth(900);
-            window.setHeight(700);
-            simulator.setProgram(new Default(arr, "Default"));
-            handleProfiles.getScene().setRoot(anotherRoot);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
 
 }

@@ -58,7 +58,7 @@ public class SaveWindow {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Save");
         stage.setMinWidth(400);
-
+        stage.setResizable(false);
         Label lbl = new Label();
         lbl.setMinHeight(50);
         lbl.setText("Choose the name for saving the file:");

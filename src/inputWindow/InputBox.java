@@ -1,8 +1,6 @@
 package inputWindow;
 
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import javafx.scene.control.*;
 import com.google.gson.*;
 import java.lang.reflect.Type;
 import java.util.HashMap;

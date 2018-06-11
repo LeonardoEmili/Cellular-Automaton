@@ -13,6 +13,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import simulatorWindow.programs.CellularAutomataProgram;
+import simulatorWindow.programs.Default;
 import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import welcomeWindow.FXMLWBController;
@@ -80,6 +81,9 @@ public class SimulatorController implements Initializable{
     @FXML
     private Label cellCount;
 
+    @FXML
+    private Button saveBtn;
+
     private Simulator simulator;
 
     @Override
@@ -138,6 +142,9 @@ public class SimulatorController implements Initializable{
     }
 
     private void setBtnEvents() {
+        saveBtn.setDisable(false);
+        if (!(simulator.currentProgram instanceof Default))
+            saveBtn.setDisable(true);
         b1.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.evenRows));
         b2.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.random));
         b3.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.xySin));

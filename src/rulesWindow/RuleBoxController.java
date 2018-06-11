@@ -74,14 +74,14 @@ public class RuleBoxController implements Initializable {
     @FXML
     private ToggleButton ANDRule;
 
-    private static ObservableList<Status> states;        // List of States selected by user
-    private static ArrayList<String> choiceItems;       // Items that appears in ChoiceBox
-    private final int defaultStateValue = 0;            // Current state in analysis
-    private final int defaultRuleValue = 1;             // Current state in analysis
-    private final int defaultNotRuleValue = 0;          // If is 0 then NOT is not active, 1 is active
-    private final int defaultSelectedStateValue = -1;   // Default value, if is -1 then no state has been selected
-    private IntegerProperty currentState;               // GUI stuff
-    private IntegerProperty currentRule;                // GUI stuff
+    private static ObservableList<Status> states;           // List of States selected by user
+    private static ArrayList<String> choiceItems;           // Items that appears in ChoiceBox
+    private final int defaultStateValue = 0;                // Current state in analysis
+    private final int defaultRuleValue = 1;                 // Current state in analysis
+    private final int defaultNotRuleValue = 0;              // If is 0 then NOT is not active, 1 is active
+    private final int defaultSelectedStateValue = -1;       // Default value, if is -1 then no state has been selected
+    private IntegerProperty currentState;                   // GUI stuff
+    private IntegerProperty currentRule;                    // GUI stuff
     private int selectedState = defaultSelectedStateValue;  // Integer that select a state from the list
     private RadioButton[] boxArray;                         // Just a wrapper for buttons, used to loop over them
 
@@ -90,10 +90,6 @@ public class RuleBoxController implements Initializable {
         buildGUIStuff();
         nextState();
     }
-
-    public static void setStates(ObservableList<Status> listStates) {
-        states = listStates;
-    }       // Used to pass the States from the previous window
 
 
     private void setSelected(HBox bar) {
@@ -285,6 +281,10 @@ public class RuleBoxController implements Initializable {
             ANDRule.setText("AND");
         else
             ANDRule.setText("OR");
+    }
+
+    public static void setStates(ObservableList<Status> listStates) {       // Used to pass the States from the previous window
+        states = listStates;
     }
 
     //--------------------------END-OF-UTILITY-METHODS--------------------------------------------------------
