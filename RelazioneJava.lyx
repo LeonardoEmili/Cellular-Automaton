@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -50,6 +50,8 @@ figs-within-sections
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -79,6 +81,7 @@ figs-within-sections
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -87,7 +90,10 @@ figs-within-sections
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language french
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -99,6 +105,26 @@ figs-within-sections
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+includegraphics[scale=0.5]{prova2} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Title
 Editor per Automi Cellulari
@@ -134,7 +160,7 @@ Introduzione
 \begin_layout Standard
 Il progetto consiste nella creazione di un editor per automi cellulari e
  di una GUI.
- L'intero progetto é fortemente 
+ L'intero progetto è fortemente 
 \begin_inset Formula $user-oriented$
 \end_inset
 
@@ -144,7 +170,7 @@ Il progetto consiste nella creazione di un editor per automi cellulari e
 \begin_inset Newline newline
 \end_inset
 
-L'idea é quella di eseguire una simulazione che utilizzi i concetti di multithre
+L'idea è quella di eseguire una simulazione che utilizzi i concetti di multithre
 ading, concorrenza nonché i pilastri della 
 \begin_inset Formula $OOP$
 \end_inset
@@ -180,7 +206,7 @@ Tecnologie utilizzate
 \end_layout
 
 \begin_layout Standard
-L'intero progetto é stato scritto in 
+L'intero progetto è stato scritto in 
 \begin_inset Formula $Java$
 \end_inset
 
@@ -200,7 +226,15 @@ L'intero progetto é stato scritto in
 \begin_inset Formula $LaTex$
 \end_inset
 
- per la stesura di questa relazione.
+ per la stesura di questa relazione, 
+\begin_inset Formula $Python$
+\end_inset
+
+ e 
+\begin_inset Formula $Gimp$
+\end_inset
+
+ per la gestione e il ritocco delle immagini.
 \end_layout
 
 \begin_layout Standard
@@ -231,10 +265,10 @@ Guida all'uso
 \end_layout
 
 \begin_layout Standard
-Il programma ha un'interfaccia semplice e intuitiva ed é organizzato in
- 3 stadi logici: un primo stadio dove l'utente sceglie in che modalitá eseguire
- il programma, un secondo stadio dove vengono recuperate le informazioni
- necessarie affinché la simulazione possa iniziare, ed infine un ultimo
+Il programma ha un'interfaccia semplice e intuitiva ed è organizzato in
+ tre stadi logici: un primo stadio dove l'utente sceglie in che modalitá
+ eseguire il programma, un secondo stadio dove vengono recuperate le informazion
+i necessarie affinché la simulazione possa iniziare, ed infine un ultimo
  stadio di interazione con il simulatore.
 \end_layout
 
@@ -267,11 +301,11 @@ Schermata degli input
 \end_layout
 
 \begin_layout Standard
-In questa sezione l'utente é libero di scegliere gli stati delle cellule
+In questa sezione l'utente è libero di scegliere gli stati delle cellule
  attraverso un'idea piú intuitiva: la scelta dei colori che le cellule dovranno
  avere, in questo modo si interagisce direttamente con il loro ciclo di
  vita.
- É inoltre possibile personalizzare i principi che regolano le transizioni
+ È inoltre possibile personalizzare i principi che regolano le transizioni
  di stato.
 \begin_inset Newline newline
 \end_inset
@@ -285,11 +319,12 @@ Schermata del simulatore
 \end_layout
 
 \begin_layout Standard
-Il protagonista, la tela del quadro é dove avviene la scena e dove é possibile
- assistere alla simulazione.
- Questa é circondata ai lati da pulsanti che regolano le configurazioni
+Il protagonista è la ''tela'' del quadro, dove avviene la scena e dove è
+ possibile assistere alla simulazione.
+ Questa è circondata ai lati da pulsanti che regolano le configurazioni
  iniziali, mentre all'estremo inferiore sono localizzati i pulsanti di controllo
- con i quali é possibile interagire direttamente con la simulazione.
+ con i quali è possibile interagire direttamente con la simulazione, o salvare
+ il programma creato.
 \end_layout
 
 \begin_layout Standard
@@ -331,7 +366,7 @@ teoria degli automi cellulari
 \begin_inset Formula $C$
 \end_inset
 
- é composto da 9 celle, la cella centrale 
+ è composto da 9 celle, la cella centrale 
 \begin_inset Formula $C$
 \end_inset
 
@@ -345,9 +380,9 @@ Game of Life
 \begin_layout Standard
 L'automa sviluppato dal matematico 
 \emph on
-John Conway 
+John Conway
 \emph default
-é uno dei pilastri della collezione, l'apparente semplicitá con cui regole
+ è uno dei pilastri della collezione, l'apparente semplicitá con cui regole
  e stati vengono definiti porta all'occhio non pochi risvolti teorici.
  La scena si svolge su una griglia bidimensionale formata da cellule che
  possono assumere soltanto due stati: vivo o morto.
@@ -356,19 +391,20 @@ John Conway
 \end_layout
 
 \begin_layout Itemize
-La cellula che si trova nello stato morto e conta esattamente 3 cellule
+La cellula che si trova nello stato morto e conta esattamente tre cellule
  vive nel suo vicinato transisce nello stato vivo.
 \end_layout
 
 \begin_layout Itemize
 La cellula che si trova nello stato vivo e che ha o un numero di vicini
- maggiore strettamente di 3 oppure numero di vicini minore strettamente
- di 2 transisce nello stato morto.
+ maggiore strettamente di tre oppure numero di vicini minore strettamente
+ di due transisce nello stato morto.
 \end_layout
 
 \begin_layout Itemize
 La cellula che si trova nello stato vivo e conta un numero di vicini pari
- a 2 o 3 sopravvive alla prossima generazione rimanendo nello stesso stato.
+ a due o tre sopravvive alla prossima generazione rimanendo nello stesso
+ stato.
 \end_layout
 
 \begin_layout Subsection
@@ -448,7 +484,7 @@ eccitazione
 
 \emph default
  
-\begin_inset Formula $\prec$
+\begin_inset Formula $<$
 \end_inset
 
  
@@ -456,7 +492,7 @@ eccitazione
 \end_inset
 
  
-\begin_inset Formula $\prec$
+\begin_inset Formula $<$
 \end_inset
 
  
@@ -479,7 +515,7 @@ La somma
 \emph on
 angolo
 \emph default
-, utilizzato per selezionare uno degli 8 vicini di 
+, utilizzato per selezionare uno degli otto vicini di 
 \emph on
 Moore
 \emph default
@@ -519,8 +555,8 @@ blur
 Utilizzando una configurazione iniziale nella quale la griglia è composta
  di colori casuali esclusivamente neri o bianchi con una distribuzione di
  almeno il 50% di elementi bianchi si ottiene una struttura che a seguito
- delle prime 500 generazioni tende a creare cluster simili alle simulazioni
- ottenute con gli algoritmi di 
+ delle prime cinquecento generazioni tende a creare cluster simili alle
+ simulazioni ottenute con gli algoritmi di 
 \emph on
 marching squares.
 \begin_inset Newline newline
@@ -531,6 +567,76 @@ Non è ancora chiaro se la struttura cellulare che si genera con questo tipo
  finito di generazioni, tramite sperimentazioni su un lasso di tempo prolungato
  le dimensioni dei cluster sembrano crescere fino a stabilizzarsi, ma l'evoluzio
 ne del loro movimento lungo la griglia è continuo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename IMG_FIGHE/4.circular
+	scale 60
+	groupId imgfighe
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Figura 1: Circular Redistribution
+\shape default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -670,6 +776,76 @@ tupla (r,g,b)
  oppure un colore in scala grigi.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename IMG_FIGHE/3.cyclic
+	scale 60
+	groupId imgfighe
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Figura 2: Cyclic CA
+\shape default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Diffusion Aggregation
 \end_layout
@@ -760,6 +936,76 @@ aggregata
  al totale delle celle iniziali presenti all'interno della griglia.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename IMG_FIGHE/2.diffagg
+	scale 60
+	groupId imgfighe
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Figura 3: Diffusion Aggregation
+\shape default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 H3 Rule
 \begin_inset Foot
@@ -782,7 +1028,8 @@ fram.com/ElementaryCellularAutomaton.html)
  due possibili valori, 0 o 1.
  L'evoluzione di una cella dell'automa alla generazione successiva è interamente
  specificata dai valori delle due celle adiacenti e dallo stato attuale
- della cella, ottenendo dunque un massimo di 256 possibili combinazioni.
+ della cella, ottenendo dunque un massimo di duecentocinquantasei possibili
+ combinazioni.
  Si parte da una prima 
 \emph on
 riga
@@ -807,7 +1054,7 @@ status open
 \begin_layout Plain Layout
 Wacław Franciszek Sierpiński (Varsavia, 14 marzo 1882 - Varsavia, 21 ottobre
  1969) è stato un matematico polacco.
- Egli é ampiamente conosciuto per i suoi contributi nella teoria degli insiemi
+ Egli è ampiamente conosciuto per i suoi contributi nella teoria degli insiemi
  ed per le sue scoperte, tra cui: il numero e il triangolo di Sierpiński.
 \end_layout
 
@@ -817,6 +1064,74 @@ Wacław Franciszek Sierpiński (Varsavia, 14 marzo 1882 - Varsavia, 21 ottobre
  Per visualizzare questo risultato è necessario impostare la condizione
  iniziale della griglia che assegna ad una sola cella lo stato 1, che sarà
  la cella centrale della prima riga in alto della griglia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename IMG_FIGHE/1.h3
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\shape italic
+Figura 1: H3 Rule
+\shape default
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -928,182 +1243,6 @@ Constructor().newInstance());
 
 \end_layout
 
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Example
-Il seguente metodo mostra l'inpatto della logica booleana nel progetto.
-\end_layout
-
-\begin_layout Example
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-    private void comeToMeCA(String className) {
-\end_layout
-
-\begin_layout Plain Layout
-
-	try {
-\end_layout
-
-\begin_layout Plain Layout
-
-		Class<?> C = CellularAutomataProgram.class.forName("simulatorWindow.programs."
- + className);
-\end_layout
-
-\begin_layout Plain Layout
-
-		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
-Constructor().newInstance());             		
-\end_layout
-
-\begin_layout Plain Layout
-
-		simulator.setProgram(currentProgram);
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (ClassNotFoundException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println("Class " + className + " has not been defined.");
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (NoSuchMethodException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println("Constructor not found");
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (IllegalAccessException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println(e.getMessage());
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (InstantiationException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println(e.getMessage());
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (InvocationTargetException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println(e.getMessage());
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Example
-Altro metodo figo che abbiamo fatto ? comeToMeCA serve solo per riempire
- lo spazio, va rimpiazzato col nuovo codice.
-\end_layout
-
-\begin_layout Example
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-    private void comeToMeCA(String className) {
-\end_layout
-
-\begin_layout Plain Layout
-
-	try {
-\end_layout
-
-\begin_layout Plain Layout
-
-		Class<?> C = CellularAutomataProgram.class.forName("simulatorWindow.programs."
- + className);
-\end_layout
-
-\begin_layout Plain Layout
-
-		CellularAutomataProgram currentProgram = CellularAutomataProgram.class.cast(C.get
-Constructor().newInstance());             		
-\end_layout
-
-\begin_layout Plain Layout
-
-		simulator.setProgram(currentProgram);
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (ClassNotFoundException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println("Class " + className + " has not been defined.");
-\end_layout
-
-\begin_layout Plain Layout
-
-	} catch (NoSuchMethodException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println("Constructor not found");
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Example
 \begin_inset Newpage pagebreak
 \end_inset
@@ -1126,12 +1265,12 @@ Gli stati
 \end_layout
 
 \begin_layout Standard
-L'idea di base é che ciasuna cellula al momento della creazione viene associata
- uno stato che ne regola lo sviluppo.
+L’idea di base è che ciasuna cellula al momento della creazione vie- ne
+ associata a uno stato che ne regola lo sviluppo.
  Si noti come in questo modello gli stati non sono solo semplici proprietá
- di cui ogni cellula dispone, bensí essi sono parte attiva dell'evoluzione
- dell'automa.
- Questo implica che in un dato momento 
+ di cui ogni cellula dispone, bensí essi sono parte attiva dell’evoluzione
+ dell’automa.
+ Questo implica che in un qualsiasi momento 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -1143,28 +1282,32 @@ L'idea di base é che ciasuna cellula al momento della creazione viene associata
 \begin_inset Formula $D$
 \end_inset
 
- un numero indeterminato di cellule che oscilla tra lo 0 e l'intera popolazione
+ un numero indeterminato di cellule che oscilla tra lo 0 e l’intera popolazione
  di cellule.
- Nello scenario descritto vengono descritti i casi piú estremi, e logico
- dunque assumere che in un momento 
+ Se chiamiamo però 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ il numero di stati e 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ il numero di cellule è lecito ipotizzare che in un qualunque momento 
 \begin_inset Formula $\tau$
 \end_inset
 
- lo stato 
-\begin_inset Formula $S$
+ il dominio sia approssimativamente 
+\begin_inset Formula $D_{\tau}=\dfrac{N_{c}}{N_{s}}$
 \end_inset
 
- conterá un numero medio di cellule che chiameremo 
-\begin_inset Formula $m$
+ , sempre a patto che l’automa creato sia in qualche modo 
+\begin_inset Formula $equilibrato$
 \end_inset
 
 .
- In ogni istante ciascuno stato 
-\begin_inset Formula $S$
-\end_inset
-
- interroga le proprie cellule e, in base alle regole di transizione definite
- , quest'ultime sono in grado di abbandonare 
+ In ogni istante ciascuno stato interroga le proprie cellule e, in base
+ alle regole di transizione definite , quest’ultime sono in grado di abbandonare
+ 
 \begin_inset Formula $S$
 \end_inset
 
@@ -1173,23 +1316,15 @@ L'idea di base é che ciasuna cellula al momento della creazione viene associata
  stati che sono in grado di applicare le proprie regole senza interferire
  con cellule estranee al proprio dominio.
  Al termine della procedura tutte le possibili transizioni sono state eseguite
- e una volta eseguito il refresh globale della scena l'intero 
-\emph on
-algoritmo
-\emph default
- é pronto a ripartire.
- Si noti come l'intero processo venga 
-\series bold
-\emph on
-virtualizzato
-\series default
-\emph default
- da parte degli stati: essi applicano regole su ciascuna delle proprie cellule
- che a loro volta possono mutare il loro stato interno, ma sará solo al
- termine di ciascun colpo di clock che le cellule renderanno visibile la
+ e una volta eseguito il refresh globale della scena l’intero algoritmo
+ è pronto a ripartire.
+ Si noti come l’intero processo venga virtualizzato da parte degli stati:
+ essi applicano regole su ciascuna delle proprie cellule che a loro volta
+ possono mutare il loro stato interno, ma sará solo al termine di ciascun
+ ''colpo di clock'' del programma che le cellule renderanno visibile la
  loro transizione agli altri stati.
  Questo meccanismo di mutua esclusione tra gli stati impedisce loro di interferi
-re, rendendo cosí possibile la parallelizzazione dei processi su un'unica
+re, rendendo cosí possibile la parallelizzazione dei processi su un’unica
  griglia.
 \end_layout
 
@@ -1200,51 +1335,331 @@ Regole di transizione
 \begin_layout Standard
 Le regole di transizione regolano i processi di mutazione delle cellule
  in ogni momento.
- Esse possono essere pensate come particolari 
-\emph on
-funzioni matematiche biunivoche 
-\emph default
-definite su un dominio di stati 
-\begin_inset Formula $D$
-\end_inset
-
- e su un codominio di stati 
-\begin_inset Formula $C$
-\end_inset
-
-.
- A ciascuno stato é associato, in base regole, un proprio stato di arrivo
- che puó, eventualmente, coincidere con lo stato di partenza nel caso in
- cui le regole lo prevedano.
-\begin_inset Newline newline
-\end_inset
-
-Le regole sono completamente personalizzabili e si basano sui pilastri della
- 
-\series bold
-logica booleana
-\series default
-.
+ Sono completamente personalizzabili e si basano sui princìpi della logica
+ booleana Ad ogni stato sono associate delle regole, in AND o in OR tra
+ di loro, e ogni regola può assumere un valore booleano o il suo negato,
+ il tutto a scelta dell’utente.
  Ogni complessa equazione booleana puó essere scomposta in proposizioni
  piú semplici che prendono il nome di 
-\emph on
-proposizione atomiche
-\emph default
+\begin_inset Formula $proposizioni$
+\end_inset
+
+ 
+\begin_inset Formula $atomiche$
+\end_inset
+
 .
- Secondo il 
-\emph on
-principio del terzo escluso 
-\emph default
-della logica booleana ciascuna proposizione atomica ha un unico valore di
- veritá: vero o falso.
- Il programma é in grado, attraverso una combinazione di molteplici proposizioni
+ Secondo il principio del terzo escluso della logica booleana ciascuna proposizi
+one atomica ha un unico valore di veritá: vero o falso.
+ Il programma è in grado, attraverso una combinazione di molteplici proposizioni
 , di stabilire il valore di veritá di una generica regola o di una combinazione
  di regole ed di applicarle in tal senso.
- Alcuni dettagli implementativi a riguardo sono trattati nel 
-\emph on
-Paragrafo 5
-\emph default
-.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Example
+Per spiegare l’applicazione delle regole su una singola cella poniamo l’esempio
+ che l’utente abbia scelto di controllare n (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{nNeighbors}
+\end_layout
+
+\end_inset
+
+) celle vicine, e abbia richiesto che siano di un preciso stato.
+ Per ogni cella, da 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{applyRules()}
+\end_layout
+
+\end_inset
+
+ viene chiamata la funzione 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{ruleOnCell()}
+\end_layout
+
+\end_inset
+
+ che applica la regola su una singola cella.
+ Nel caso che prendiamo in considerazione 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{ruleOnCell()}
+\end_layout
+
+\end_inset
+
+ chiama 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{anyRules()}
+\end_layout
+
+\end_inset
+
+ che guarda i vicini della cella e vede se ce ne sono n, poi ritorna un
+ booleano XOR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{r.not}
+\end_layout
+
+\end_inset
+
+, quest’ultimo è un valore booleano scelto dall’utente per chiedere una
+ regola (false) o il suo contrario (true), nel caso voglia che non si verifichi
+ una determinata situazione.
+ Questo valore ritornato va a riempire un array di booleani che indicano
+ il valore che hanno assunto tutte le regole applicate su quella cella (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{this.operator}
+\end_layout
+
+\end_inset
+
+), il quale viene poi elaborato da deMorganator che applica le regole AND
+ e OR sempre decise dall’utente in fase di creazione e gestisce lo stato
+ che la cella assumerà al prossimo passo.
+\end_layout
+
+\begin_layout Example
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private void applyRules() { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (Cell c : this.cells) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		for (int i = 0; i < ruleSet.size(); i++) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+			this.operator[0][i] = ruleOnCell(c, ruleSet.get(i)); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (deMorganator()) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+			c.futureId = this.toStatus; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		}else{c.futureId = this.id;} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private boolean deMorganator() { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean outcome = true && this.operator[0][0]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (int i = 1; i < ruleSet.size(); i++) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (this.operator[1][i]) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+			outcome &= this.operator[0][i]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} else {outcome |= this.operator[0][i];} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} return outcome; 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private boolean ruleOnCell(Cell c, Rule r) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (r.any) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(r.exact){return exactRule(r,c);} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		return anyRule(r, c); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} return specificRule(r, c); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private boolean anyRule(Rule r, Cell c) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int counter = 0; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (Cell near : c.nearby) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (near.idStatus == r.nearStatus) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter += 1; } 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (counter == r.nNeighbors) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		return true ^ r.not; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	return false ^ r.not; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1252,21 +1667,6 @@ Paragrafo 5
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Problemi matematici coinvolti
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Curiositá
 \end_layout
 
 \end_body
