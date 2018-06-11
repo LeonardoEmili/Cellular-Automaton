@@ -12,7 +12,7 @@ import java.util.Random;
 public abstract class CellularAutomataProgram {
 
     public iVec2 gridSize;                      // Size of the grid
-    public InitialStateCondition condition;     // We used an enum to identify the initial condition
+    public volatile InitialStateCondition condition;     // We used an enum to identify the initial condition
     private Random random = new Random();       // Just a random initial condition
     public static PixelReader pixelReader;
     public static iVec2 imageSize;

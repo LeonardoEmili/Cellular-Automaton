@@ -5,6 +5,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import simulatorWindow.programs.CellularAutomataProgram;
+import simulatorWindow.programs.CyclicCA;
+import simulatorWindow.programs.Default;
 import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import simulatorWindow.utils.iVec3;
@@ -62,8 +64,8 @@ public class Simulator {
 
     public void setProgram(CellularAutomataProgram newprogram) {
         currentProgram = newprogram;
-        currentProgram.setGridDimension(size.x, size.y);
         currentProgram.condition = initialCondition;
+        currentProgram.setGridDimension(size.x, size.y);
         currentProgram.reset();
     }
 

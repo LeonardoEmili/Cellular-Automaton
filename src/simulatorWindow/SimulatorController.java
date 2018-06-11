@@ -12,8 +12,7 @@ import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import simulatorWindow.programs.CellularAutomataProgram;
-import simulatorWindow.programs.Default;
+import simulatorWindow.programs.*;
 import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import welcomeWindow.FXMLWBController;
@@ -85,10 +84,12 @@ public class SimulatorController implements Initializable{
     private Button saveBtn;
 
     private Simulator simulator;
+    private Button[] buttonArray;
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         this.simulator = FXMLWBController.getSimulator();
+        buttonArray = new Button[] {b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, saveBtn};
         simulator.setCanvas(canvas);
         setBtnEvents();
         Timeline guiUpdater = new Timeline(new KeyFrame(Duration.millis(500), e -> {
@@ -142,9 +143,7 @@ public class SimulatorController implements Initializable{
     }
 
     private void setBtnEvents() {
-        saveBtn.setDisable(false);
-        if (!(simulator.currentProgram instanceof Default))
-            saveBtn.setDisable(true);
+        boostAtomatas();
         b1.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.evenRows));
         b2.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.random));
         b3.setOnAction( e -> simulator.setInitialStateCondition(InitialStateCondition.xySin));
@@ -163,6 +162,25 @@ public class SimulatorController implements Initializable{
                 selectInitialConditionImage();
             } catch (MalformedURLException ex) { }
         });
+    }
+
+    private void boostAtomatas() {
+        for (Button btn: buttonArray) { btn.setDisable(false); }
+        if (!(simulator.currentProgram instanceof Default))
+            saveBtn.setDisable(true);
+        if (simulator.currentProgram instanceof CyclicCA) {
+            b1.setDisable(true);    b2.setDisable(true);    b3.setDisable(true);
+            b4.setDisable(true);    b5.setDisable(true);    b6.setDisable(true);
+            b7.setDisable(true);    b8.setDisable(true);    b9.setDisable(true);
+            b10.setDisable(true);   b11.setDisable(true);
+        } else if (simulator.currentProgram instanceof DiffusionAggregation) {
+            b5.setDisable(true);
+        } else if (simulator.currentProgram instanceof H3Rule) {
+            b1.setDisable(true);    b2.setDisable(true);    b3.setDisable(true);
+            b4.setDisable(true);    b7.setDisable(false);   b8.setDisable(true);
+            b9.setDisable(true);    b10.setDisable(true);   b11.setDisable(true);
+            b12.setDisable(true);   b13.setDisable(true);   b14.setDisable(true);
+        }
     }
 
     private void selectInitialConditionImage() throws MalformedURLException {

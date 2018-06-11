@@ -49,9 +49,10 @@ public class FXMLWBController implements Initializable {
         }
     }
 
-    public void open() {             // This function gets called when button LOAD is hit
+    public void open() {                         // This function gets called when button LOAD is hit
         ArrayList<Status> statesLoaded = openFile();
-        goToSimulation(statesLoaded);
+        if (statesLoaded.size() != 0)
+            goToSimulation(statesLoaded);
     }
 
     private void goToSimulation(ArrayList<Status> arr) {
@@ -80,7 +81,7 @@ public class FXMLWBController implements Initializable {
         try {
             JsonReader reader = new JsonReader(new FileReader(selectedFile));
             load = new Gson().fromJson(reader, Loader.class);
-        } catch (FileNotFoundException ex) { ex.printStackTrace(); }
+        } catch (FileNotFoundException | NullPointerException ex) {}
         return load.parseStates();
     }
 

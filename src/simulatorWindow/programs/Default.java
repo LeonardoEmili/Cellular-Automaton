@@ -70,9 +70,8 @@ public class Default extends CellularAutomataProgram {
         } else if (st == Thread.State.TERMINATED) {
             ;
         } else {        // Base State
-            for (Status s : this.states) {
+            for (Status s : this.states)
                 s.start();
-            }
         }
     }
 
