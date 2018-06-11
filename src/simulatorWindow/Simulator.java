@@ -9,6 +9,8 @@ import simulatorWindow.utils.InitialStateCondition;
 import simulatorWindow.utils.iVec2;
 import simulatorWindow.utils.iVec3;
 
+import java.io.*;
+
 public class Simulator {
 
     public CellularAutomataProgram currentProgram;
@@ -88,5 +90,15 @@ public class Simulator {
                 gc.fillRect(j * 2, y * 2, 2, 2);
             }
     }
+    public void save(String file){
+        try {
+            FileOutputStream f = new FileOutputStream(new File(file));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(currentProgram);
+            o.close();
+            f.close();
+        }catch(IOException ex){}
+    }
+
 
 }

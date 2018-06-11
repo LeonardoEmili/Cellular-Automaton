@@ -1,9 +1,11 @@
 package rulesWindow;
 
+import inputWindow.FXMLIPController;
 import inputWindow.MessageBox;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +15,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import simulatorWindow.utils.State;
+import javafx.stage.Stage;
+import simulatorWindow.Simulator;
+import simulatorWindow.programs.Default;
+import simulatorWindow.utils.*;
+import welcomeWindow.FXMLWBController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -68,7 +74,10 @@ public class RuleBoxController implements Initializable {
     @FXML
     private ToggleButton NOTRule;
 
-    private static ObservableList<State> states;        // List of States selected by user
+    @FXML
+    private ToggleButton ANDRule;
+
+    private static ObservableList<Status> states;        // List of States selected by user
     private static ArrayList<String> choiceItems;       // Items that appears in ChoiceBox
     private final int defaultStateValue = 0;            // Current state in analysis
     private final int defaultRuleValue = 1;             // Current state in analysis
@@ -85,7 +94,7 @@ public class RuleBoxController implements Initializable {
         nextState();
     }
 
-    public static void setStates(ObservableList<State> listStates) {
+    public static void setStates(ObservableList<Status> listStates) {
         states = listStates;
     }       // Used to pass the States from the previous window
 
@@ -100,13 +109,21 @@ public class RuleBoxController implements Initializable {
         }
         Rectangle r = (Rectangle)(bar.getChildren().get(index));
         r.setStyle("-fx-stroke: yellow; -fx-stroke-width: 2;");
-        selectedState = index;
+        selectedState = Integer.parseInt(states.get(index).getIdCol());
     }
 
     public void nextState() {
         if (currentState.getValue() == states.size()) {
-            System.out.println("Non ce ne stanno piú ..");      // todo split take data from here
-            for (State s: states) { s.printRules(); }           // todo utility method to visualize rules
+            ArrayList<Status> newStates=new ArrayList<>();
+            for(Status s: this.states){
+                s.setOperator();
+                newStates.add(s);
+            }
+            Default program=new Default(newStates,"Default");
+            for(Status st:program.states){st.prog=program;}
+            Simulator simulator=FXMLWBController.getSimulator();
+            simulator.setProgram(program);
+            showSimulation();
             return;
         }
         currentRule.setValue(defaultRuleValue);         // Rule counter re-initializes for-each state
@@ -124,14 +141,15 @@ public class RuleBoxController implements Initializable {
             int value = Integer.parseInt(input.getText());
             input.setStyle("-fx-faint-focus-color: transparent; -fx-focus-color:transparent");
             if (selectedState == -1) {
-                MessageBox.show("No State has been selected.","No selected State", 16);
+                MessageBox.show("No Status has been selected.","No selected Status", 16);
                 return;
             }
+            int[] arr={};
+            boolean not=NOTRule.isSelected();
+            boolean and=ANDRule.isSelected();
             // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
-            int[] newRule = new int[] {defaultNotRuleValue, 0, choiceItems.indexOf(choiceBox.valueProperty().getValue()), value, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
-            if (NOTRule.isSelected())           // ToggleButton
-                newRule[0] = 1;
-            System.out.println(Arrays.toString(newRule));       // todo remove
+            Rule newRule = new Rule (arr, true, not,and, choiceItems.indexOf(choiceBox.valueProperty().getValue())==0, value, selectedState);
+            //System.out.println(Arrays.toString(newRule));       // todo remove
             selectedState = defaultSelectedStateValue;
             cleanSelected();
             states.get(currentState.intValue() - 1).addRule(newRule);       // Adds rule to the relative state
@@ -150,31 +168,30 @@ public class RuleBoxController implements Initializable {
         for (RadioButton c: boxArray) { if (c.isSelected()) counterSelected++; }
         if (shouldNotPass(counterSelected))
             return;
-        int[] newRule = makeRule(counterSelected);
-        System.out.println(Arrays.toString(newRule));       // todo remove
+        Rule newRule = makeRule(counterSelected);
+        //System.out.println(Arrays.toString(newRule));       // todo remove
         selectedState = defaultSelectedStateValue;
         cleanSelected();        // Deselects all the rectangles at the bottom
-        states.get(currentState.intValue() - 1).addRule(newRule);       // Adds rule to relative State
+        states.get(currentState.intValue() - 1).addRule(newRule);       // Adds rule to relative Status
         nextRule();
         deSelectAll();
     }
 
-    private int[] makeRule(int counterSelected) {
+    private Rule makeRule(int counterSelected) {
         // Format: [any|spec,  exactly|at least|not more, how much ,8 neighbors, landing Status]
-        int[] newRule = new int[] {defaultNotRuleValue, 1, -1, counterSelected, 0, 0, 0, 0, 0, 0, 0, 0, selectedState};
-        int offset = 4;
+        int value = Integer.parseInt(input.getText());
+        boolean not=NOTRule.isSelected();
+        boolean and=ANDRule.isSelected();
+        int[] arr={-1,-1,-1,-1,-1,-1,-1,-1};
         for (int i = 0; i < 8; i++) {
-            int currentIndex = i + offset;
             if (boxArray[i].isSelected())
-                newRule[currentIndex] = 1;
+                arr[i] = selectedState;
         }
-        if (NOTRule.isSelected())
-            newRule[0] = 1;
-        return newRule;
+        return new Rule (arr, false, not,and, choiceItems.indexOf(choiceBox.valueProperty().getValue())==0, value, selectedState);
     }
 
     private void createUpperHBox() {        // Dynamically creates the upper HBox
-        for (State s : states) {
+        for (Status s : states) {
             Rectangle r = new Rectangle();
             r.setHeight(statesBar.getMaxHeight());
             r.setWidth(statesBar.getMaxWidth()/states.size());
@@ -184,13 +201,24 @@ public class RuleBoxController implements Initializable {
     }
 
     private void createLowerHBox() {        // Dynamically create the lower HBox, this method adds an eventListener for each Rectangle
-        for (State s : states) {
+        for (Status s : states) {
             Rectangle r = new Rectangle();
             r.setHeight(statesBar.getMaxHeight());
             r.setWidth(statesBar.getMaxWidth()/states.size());
             r.setFill(Color.web(s.getHexCol(),1.0));
             r.setOnMouseClicked(e -> setSelected(statesBar2));
             statesBar2.getChildren().add(r);
+        }
+    }
+    public void showSimulation() {
+        try {
+            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/simulatorWindow/Simulator.fxml"));
+            Stage window = (Stage)(statesBar.getScene().getWindow());
+            window.setWidth(900);
+            window.setHeight(700);
+            statesBar.getScene().setRoot(anotherRoot);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -225,7 +253,7 @@ public class RuleBoxController implements Initializable {
 
     private boolean shouldNotPass(int counterSelected) {        // lol
         if (selectedState == -1) {
-            MessageBox.show("No State has been selected.","No selected State", 16);
+            MessageBox.show("No Status has been selected.","No selected Status", 16);
             return true;
         }
 

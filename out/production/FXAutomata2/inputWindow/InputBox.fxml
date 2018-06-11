@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,9 +20,11 @@
    <center>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="colorCol" prefWidth="250.0" text="Color" />
-            <TableColumn fx:id="hexCol" prefWidth="200.0" text="Hex Value" />
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colorCol" prefWidth="198.0" text="ID Color" />
+            <TableColumn fx:id="hexCol" prefWidth="150.0" text="Hex Value" />
+            <TableColumn fx:id="nextIdCol" prefWidth="75.0" text="Next ID" />
+            <TableColumn fx:id="nextColorCol" prefWidth="198.0" text="Next Color" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="30.0" />

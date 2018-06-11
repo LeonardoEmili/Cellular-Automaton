@@ -12,7 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import rulesWindow.RuleBoxController;
-import simulatorWindow.utils.State;
+import simulatorWindow.utils.Status;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,36 +22,36 @@ import java.util.ResourceBundle;
 public class FXMLIPController implements Initializable {
 
     @FXML
-    private TableView<State> table;
+    private TableView<Status> table;
 
     @FXML
-    private TableColumn<State, String> idCol;
+    private TableColumn<Status, String> idCol;
 
     @FXML
-    private TableColumn<State, String> colorCol;
+    private TableColumn<Status, String> colorCol;
 
     @FXML
-    private TableColumn<State, String> hexCol;
+    private TableColumn<Status, String> hexCol;
 
     @FXML
-    private TableColumn<State, String> nextIdCol;
+    private TableColumn<Status, String> nextIdCol;
 
     @FXML
-    private TableColumn<State, String> nextColorCol;
+    private TableColumn<Status, String> nextColorCol;
 
 
-    private ObservableList<State> data;
+    private ObservableList<Status> data;
     private ColorPickerBox mb = new ColorPickerBox();
 
     // The initialize() method runs once, when the FXML file is loaded.
     @Override
     public void initialize(URL url, ResourceBundle resource) {
 
-        idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));         // This column value comes from getIdCol in State
-        colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));   // This column value comes from getColorCol in State
-        hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));       // This column value comes from getHexCol in State
-        nextIdCol.setCellValueFactory(new PropertyValueFactory<>("nextIdCol"));       // This column value comes from getNextIdCol in State
-        nextColorCol.setCellValueFactory(new PropertyValueFactory<>("nextColorCol"));   // This column value comes from getNextColorCol in State
+        idCol.setCellValueFactory(new PropertyValueFactory<>("idCol"));         // This column value comes from getIdCol in Status
+        colorCol.setCellValueFactory(new PropertyValueFactory<>("colorCol"));   // This column value comes from getColorCol in Status
+        hexCol.setCellValueFactory(new PropertyValueFactory<>("hexCol"));       // This column value comes from getHexCol in Status
+        nextIdCol.setCellValueFactory(new PropertyValueFactory<>("nextIdCol"));       // This column value comes from getNextIdCol in Status
+        nextColorCol.setCellValueFactory(new PropertyValueFactory<>("nextColorCol"));   // This column value comes from getNextColorCol in Status
         idCol.setStyle( "-fx-alignment: CENTER;");      // GUI stuff
         hexCol.setStyle( "-fx-alignment: CENTER;");     // GUI stuff
         nextIdCol.setStyle( "-fx-alignment: CENTER;");  // GUI stuff
@@ -70,12 +70,12 @@ public class FXMLIPController implements Initializable {
             hexVal = hexVal.substring(0, hexVal.length() - 2);      // Removes the last 2 ff, really don't know why this happens
             if (hexVal.equals("null"))      // If the color is not picked up, probably unnecessary, keep to be sure
                 return;
-            State s = new State(data.size() + 1, hexVal, hexVal);       // Creates the State
-            data.add(s);        // Add to State list
+            Status s = new Status(data.size() + 1, hexVal, hexVal);       // Creates the Status
+            data.add(s);        // Add to Status list
         } catch (NullPointerException ex) {
             // Nothing to do here .. this happens because user has closed ColorPickerBox before choosing a color.
         }
-        refreshIndexes();       // Utility-func which keeps the State-indexes always up-to-date
+        refreshIndexes();       // Utility-func which keeps the Status-indexes always up-to-date
         table.refresh();        // Forces the table to do a refresh, useful for keeping color in order
     }
 
@@ -84,19 +84,19 @@ public class FXMLIPController implements Initializable {
     }
 
     public void removeRow() {       // Remove the currentSelectedItem from the TableView
-        State selectedItem = table.getSelectionModel().getSelectedItem();
+        Status selectedItem = table.getSelectionModel().getSelectedItem();
         table.getItems().removeAll(selectedItem);       // Probably remove is fine, keep to be sure
         System.out.println(data.toString());        // todo just to visualize the current output, to be removed
-        refreshIndexes();       // Utility-func which keeps the State-indexes always up-to-date
+        refreshIndexes();       // Utility-func which keeps the Status-indexes always up-to-date
         table.refresh();        // Forces the table to do a refresh, useful for keeping color in order
     }
 
-    public void showResult() {      // Goes to the next window if at least a State is in the Data collection
+    public void showResult() {      // Goes to the next window if at least a Status is in the Data collection
         if (data.size() == 0) {
-            MessageBox.show("Choose at least one State to continue!", "State required", 20);
+            MessageBox.show("Choose at least one Status to continue!", "Status required", 20);
             return;
         }
-        RuleBoxController.setStates(data);      // Passes the State's list to next window
+        RuleBoxController.setStates(data);      // Passes the Status's list to next window
         try {
             Parent anotherRoot = FXMLLoader.load(getClass().getResource("/rulesWindow/RuleBox.fxml"));
             table.getScene().setRoot(anotherRoot);
@@ -142,14 +142,14 @@ public class FXMLIPController implements Initializable {
             }
         });
 
-        nextIdCol.setCellFactory(TextFieldTableCell.<State>forTableColumn());       // Update next color row
+        nextIdCol.setCellFactory(TextFieldTableCell.<Status>forTableColumn());       // Update next color row
         nextIdCol.setOnEditCommit(
                 t -> {
                     String newVal = t.getNewValue();
                     if (isValidID(newVal)) {
-                        State currentState = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        Status currentState = t.getTableView().getItems().get(t.getTablePosition().getRow());
                         currentState.setNewID(newVal);
-                        State next = data.get(searchForID(newVal));
+                        Status next = data.get(searchForID(newVal));
                         currentState.setNextColor(next.getColorCol());
                         currentState.setNextState(next);
 
@@ -160,17 +160,17 @@ public class FXMLIPController implements Initializable {
     }
 
     private boolean isValidID(String id) {          // Looks if the user-chosen ID is correct or not
-        for (State s: table.getItems()) {
+        for (Status s: table.getItems()) {
             if (s.getIdCol().equals(id))
                 return true;
         }
         return false;
     }
 
-    private int searchForID(String newID) {     // Utility methods that search a State by its ID
+    private int searchForID(String newID) {     // Utility methods that search a Status by its ID
         int index = 0;
         for (int i = 0; i < data.size(); i++) {
-            State s = data.get(i);
+            Status s = data.get(i);
             if (s.getIdCol().equals(newID)) {
                 index = i;
                 break;
@@ -181,12 +181,12 @@ public class FXMLIPController implements Initializable {
 
     private void refreshIndexes() {         // Utility function
         for (int i = 0; i < data.size(); i++) {
-            State currentState = data.get(i);
+            Status currentState = data.get(i);
             currentState.setID(i+1);
         }
 
         for (int i = 0; i < data.size(); i++) {
-            State currentState = data.get(i);
+            Status currentState = data.get(i);
             try {
                 currentState.setNewID(String.valueOf(data.indexOf(currentState.getNextState())+1));
             } catch (Error ex) {

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rulesWindow.RuleBoxController">
    <top>
       <Label text="Rules" BorderPane.alignment="CENTER">
@@ -80,29 +81,43 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #adadad;">
                            <children>
-                              <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+                              <ChoiceBox fx:id="choiceBox" prefHeight="31.0" prefWidth="168.0" />
                               <TextField fx:id="input" maxWidth="160.0" prefWidth="160.0" promptText="Numeric value" />
                               <Button mnemonicParsing="false" onAction="#getAnyNearby" prefWidth="50.0" text="Next" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="50.0" spacing="20.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="320.0" text="Select to chose the complemented rule">
+                              <Label contentDisplay="CENTER" prefHeight="25.0" prefWidth="328.0" text="Operation with other rules (AND/OR)">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets />
-                                 </HBox.margin></Label>
+                                 </HBox.margin>
+                              </Label>
+                              <ToggleButton fx:id="ANDRule" mnemonicParsing="false" prefWidth="50.0" text="AND" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="50.0" spacing="20.0">
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="25.0" prefWidth="328.0" text="Select to chose the complemented rule">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
                               <ToggleButton fx:id="NOTRule" mnemonicParsing="false" prefWidth="50.0" text="NOT" />
                            </children>
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="363.0">
                            <children>
-                              <Label maxWidth="190.0" prefWidth="190.0" text="Proceed with selected">
+                              <Label prefHeight="25.0" prefWidth="215.0" text="Proceed with selected">
                                  <HBox.margin>
                                     <Insets right="130.0" />
                                  </HBox.margin>
@@ -110,7 +125,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#getThoseNearby" prefWidth="50.0" text="Next" />
+                              <Button mnemonicParsing="false" onAction="#getThoseNearby" prefHeight="31.0" prefWidth="51.0" text="Next" />
                            </children>
                         </HBox>
                      </children>
@@ -123,7 +138,8 @@
             <HBox fx:id="statesBar2" alignment="CENTER" maxHeight="30.0" maxWidth="580.0" prefHeight="30.0" prefWidth="580.0" style="-fx-border-color: #000;">
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></HBox>
+               </VBox.margin>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
