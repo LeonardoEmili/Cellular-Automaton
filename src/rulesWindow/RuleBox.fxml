@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rulesWindow.RuleBoxController">
    <top>
@@ -76,7 +76,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                  <VBox alignment="CENTER" minHeight="180.0" prefHeight="100.0" prefWidth="400.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #adadad;">
                            <children>
@@ -84,6 +84,9 @@
                               <TextField fx:id="input" maxWidth="160.0" prefWidth="160.0" promptText="Numeric value" />
                               <Button mnemonicParsing="false" onAction="#getAnyNearby" prefWidth="50.0" text="Next" />
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="50.0" spacing="20.0">
                            <children>
@@ -92,10 +95,10 @@
                                     <Font size="15.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets />
+                                    <Insets top="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <ToggleButton fx:id="ANDRule" mnemonicParsing="false" prefWidth="50.0" text="AND" />
+                              <ToggleButton fx:id="ANDRule" mnemonicParsing="false" onAction="#commuteANDOR" prefWidth="50.0" text="OR" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="50.0" spacing="20.0">
@@ -105,7 +108,7 @@
                                     <Font size="15.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets />
+                                    <Insets bottom="5.0" top="5.0" />
                                  </HBox.margin>
                               </Label>
                               <ToggleButton fx:id="NOTRule" mnemonicParsing="false" prefWidth="50.0" text="NOT" />
@@ -126,6 +129,9 @@
                               </Label>
                               <Button mnemonicParsing="false" onAction="#getThoseNearby" prefHeight="31.0" prefWidth="51.0" text="Next" />
                            </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>

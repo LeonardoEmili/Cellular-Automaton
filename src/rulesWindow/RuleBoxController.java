@@ -163,7 +163,7 @@ public class RuleBoxController implements Initializable {
     public void getThoseNearby() {
         int counterSelected = 0;
         for (RadioButton c: boxArray) { if (c.isSelected()) counterSelected++; }
-        if (shouldNotPass(counterSelected))
+        if (shallNotPass(counterSelected))
             return;
         Rule newRule = makeRule(counterSelected);
         //System.out.println(Arrays.toString(newRule));       // todo remove
@@ -248,12 +248,11 @@ public class RuleBoxController implements Initializable {
         }
     }
 
-    private boolean shouldNotPass(int counterSelected) {        // lol
+    private boolean shallNotPass(int counterSelected) {        // lol
         if (selectedState == -1) {
             MessageBox.show("No Status has been selected.","No selected Status", 16);
             return true;
         }
-
         if (counterSelected == 0) {
             MessageBox.show("Selected at least a cell to continue.","No selected cell", 16);
             return true;
@@ -279,6 +278,13 @@ public class RuleBoxController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void commuteANDOR() {
+        if (ANDRule.isSelected())
+            ANDRule.setText("AND");
+        else
+            ANDRule.setText("OR");
     }
 
     //--------------------------END-OF-UTILITY-METHODS--------------------------------------------------------
