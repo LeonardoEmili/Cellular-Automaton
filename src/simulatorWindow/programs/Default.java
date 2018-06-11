@@ -1,23 +1,21 @@
 package simulatorWindow.programs;
 import simulatorWindow.utils.*;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-import javafx.scene.paint.Color;
-
 public class Default extends CellularAutomataProgram {
-    public ArrayList<Status> states;
+    final public ArrayList<Status> states;
     public Cell[][] grid;
     public volatile int ctrl=0;
     public int h,w;
-    public String name;
+    final public String name;
 
     public Default(ArrayList<Status> arr,String name){
         this.states=arr;
         this.name=name;
+        killAll();
     }
     @Override
     public void setGridDimension(int w,int h){
@@ -44,6 +42,7 @@ public class Default extends CellularAutomataProgram {
     }
     @Override
     public void reset(){
+
         for (int j = 0; j < gridSize.y; j++) {
             for (int l = 0; l < gridSize.x; l++) {
                 this.grid[j][l].s=this.states.get(new Random().nextInt(this.states.size()));
@@ -53,14 +52,28 @@ public class Default extends CellularAutomataProgram {
                 this.grid[j][l].s.cells.add(this.grid[j][l]);
             }
         }
-        for (Status s: this.states){
-            s.start();
+        unleashHell();
+    }
+
+    private void unleashHell() {
+        Thread.State st= states.get(0).getState();
+        if (st == Thread.State.RUNNABLE) {
+            try {
+                for (Status s : this.states) { s.wait(); }
+            } catch (InterruptedException ex) {}
+        } else if ( st == Thread.State.WAITING) {
+            ;
+        } else {        // Base State
+            for (Status s : this.states) {
+                s.start();
+            }
         }
     }
 
     @Override
-    public void tick(){
-        if (this.ctrl>=2){
+    public void tick() {
+
+        if (this.ctrl>=states.size()){
             this.ctrl=0;
             for (int i = 0; i < gridSize.y; i++) {
                 for (int j = 0; j < gridSize.x; j++) {
@@ -73,7 +86,17 @@ public class Default extends CellularAutomataProgram {
                     }
                 }
             }
-            for (Status s:this.states){s.wakeup();}
+
+            wakeUpAll();
+        }
+    }
+    private void wakeUpAll() {
+        for (Status s:this.states){s.wakeup();}
+    }
+
+    public void killAll() {
+        for (Status s:this.states) {
+            s.setDaemon(true);
         }
     }
 

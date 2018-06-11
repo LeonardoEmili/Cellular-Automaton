@@ -80,9 +80,7 @@ public class CAutomatasController implements Initializable{
             System.out.println("Constructor not found");
         } catch (IllegalAccessException e) {
             System.out.println(e.getMessage());
-        } catch (InstantiationException e) {
-            System.out.println(e.getMessage());
-        } catch (InvocationTargetException e) {
+        } catch (InstantiationException | InvocationTargetException e) {
             System.out.println(e.getMessage());
         }
     }

@@ -1,11 +1,9 @@
 package rulesWindow;
 
-import inputWindow.FXMLIPController;
 import inputWindow.MessageBox;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +22,6 @@ import welcomeWindow.FXMLWBController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class RuleBoxController implements Initializable {

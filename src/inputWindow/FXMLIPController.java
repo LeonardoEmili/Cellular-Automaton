@@ -157,6 +157,9 @@ public class FXMLIPController implements Initializable {
                     table.refresh();
                 }
         );
+        for (TableColumn<?, ?> t: table.getColumns()) {
+            t.setReorderable(false);
+        }
     }
 
     private boolean isValidID(String id) {          // Looks if the user-chosen ID is correct or not
@@ -187,12 +190,13 @@ public class FXMLIPController implements Initializable {
 
         for (int i = 0; i < data.size(); i++) {
             Status currentState = data.get(i);
-            try {
-                currentState.setNewID(String.valueOf(data.indexOf(currentState.getNextState())+1));
-            } catch (Error ex) {
-                System.out.println("Stato non piú presente");
+            int index = data.indexOf(currentState.getNextState());
+            if (index == -1) {
                 currentState.setNewID(currentState.getIdCol());
-            }
+                currentState.setNextState(currentState);
+                currentState.setNextColor(currentState.getColorCol());
+            } else
+                currentState.setNewID(String.valueOf(index+1));
         }
     }
 

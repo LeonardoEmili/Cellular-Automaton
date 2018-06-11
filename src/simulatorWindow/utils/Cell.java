@@ -8,7 +8,6 @@ public class Cell {
     public iVec3 color;
     public ArrayList<Cell> nearby;
     public Status s;
-    public Status nextS;
 
     public Cell(){}
     public Cell(int idStatus,iVec3 color,iVec2 pos){

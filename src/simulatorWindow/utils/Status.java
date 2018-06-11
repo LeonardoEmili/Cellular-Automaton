@@ -3,19 +3,16 @@ package simulatorWindow.utils;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class Status extends Thread{
     public simulatorWindow.programs.Default prog;
     public int id;         // IDs start counting from 1.. pay attention
     public int nextId;
-    public String name;
     public String colorName;
     public String nextColor;
     public String hexValue;
     public Status nextState = this;
-    public ArrayList<Cell> cells=new ArrayList<>();
+    public ArrayList<Cell> cells = new ArrayList<>();
     public ArrayList<Rule> ruleSet;   // Format: [any|spec,  exactly|at least|not more, how much, 8 neighbors, landing Status]
     public boolean[][] operator;
 
