@@ -82,6 +82,7 @@ public class SimulatorController implements Initializable{
 
     private Simulator simulator;
 
+    @Override
     public void initialize(URL url, ResourceBundle resource) {
         this.simulator = FXMLWBController.getSimulator();
         simulator.setCanvas(canvas);
@@ -130,6 +131,10 @@ public class SimulatorController implements Initializable{
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+    }
+
+    public void save() {
+        SaveWindow.show(simulator.currentProgram);
     }
 
     private void setBtnEvents() {

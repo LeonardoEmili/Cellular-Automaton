@@ -2,10 +2,11 @@ package simulatorWindow.utils;
 
 import javafx.scene.paint.Color;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Status extends Thread{
-    public simulatorWindow.programs.Default prog;
+
     public int id;         // IDs start counting from 1
     public int nextId;
     public String colorName;
@@ -13,18 +14,21 @@ public class Status extends Thread{
     public String hexValue;
     public Status nextState = this;
     public ArrayList<Cell> cells = new ArrayList<>();
-    public ArrayList<Rule> ruleSet;   // Format: [NOTRule, any|spec, Exactly|At least, How Much, 8 neighbors, referred Status]
+    public ArrayList<Rule> ruleSet=new ArrayList<>();   // Format: [NOTRule, any|spec, Exactly|At least, How Much, 8 neighbors, referred Status]
     public boolean[][] operator;
+    private Wrapper myWrapper;
 
     public Status(){}
 
     public Status(int id, String color, String hexValue) {
         this.ruleSet = new ArrayList<>();
+        for(Rule r:ruleSet){r.stat=this.id;}
         this.id = id;
         this.nextId = id;
         this.colorName = color;
         this.nextColor = color;
         this.hexValue = hexValue;
+        setOperator();
     }
 
     @Override
@@ -32,7 +36,7 @@ public class Status extends Thread{
         while (!isInterrupted()) {
             this.applyRules();          // We apply rules and than wait other processes to finish
             this.cells.clear();         // Clear all the cells inside the Arralist
-            this.prog.ctrl++;           // Increases the FLAG
+            myWrapper.increaseCtrl();           // Increases the FLAG
             try {
                 Thread.currentThread().wait();
             } catch (InterruptedException e) { }
@@ -51,6 +55,10 @@ public class Status extends Thread{
             else
                 c.futureId = this.id;
         }
+    }
+
+    public void setWrapper(Wrapper myWrapper) {
+        this.myWrapper = myWrapper;
     }
 
     private boolean deMorganator() {                                     // :D
@@ -109,6 +117,7 @@ public class Status extends Thread{
     }
 
     public void setOperator(){
+        System.out.println(ruleSet.size());
         this.operator = new boolean[2][ruleSet.size()];
         for (int i = 0; i < ruleSet.size(); i++) {
             this.operator[1][i] = this.ruleSet.get(i).and;          // Fill operator with rule.and values

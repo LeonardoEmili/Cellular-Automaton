@@ -1,6 +1,7 @@
 package simulatorWindow.utils;
 
 public class Rule {
+    public int stat;
     public boolean not, any, and,exact;                  //choose if you want to deny a rule, for any cells or specific, and if a rule is in and/or with the previous
     public int nNeighbors;                         //number of neighbors to satisfy the rule
     public int nearStatus;                         //status of neighbors to satisfy the rule

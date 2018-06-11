@@ -1,19 +1,22 @@
 package welcomeWindow;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import simulatorWindow.Loader;
 import simulatorWindow.Simulator;
 import simulatorWindow.programs.Default;
+import simulatorWindow.utils.Status;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FXMLWBController implements Initializable{
@@ -51,24 +54,34 @@ public class FXMLWBController implements Initializable{
     }
 
     public void open(){
+        ArrayList<Status> statesLoaded = openFile();
+        goToSimulation(statesLoaded);
+    }
+
+    private ArrayList<Status> openFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select .stb File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("stb Files",
-                        "*.stb")); // limit fileChooser options to image files
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("stb Files", "*.stb"));
         File selectedFile = fileChooser.showOpenDialog(handleProfiles.getScene().getWindow());
-        try{
-            if (selectedFile != null) {
-                String file = selectedFile.toURI().toURL().toString();
-                FileInputStream f = new FileInputStream(new File(file));
-                ObjectInputStream o = new ObjectInputStream(f);
-                Default obj;
-                obj = (Default) o.readObject();
-                o.close();
-                f.close();
-            }
-        }catch(IOException | ClassNotFoundException ex){}
+        Loader load = new Loader();
+        try {
+            JsonReader reader = new JsonReader(new FileReader(selectedFile));
+            load = new Gson().fromJson(reader, Loader.class);
+        } catch (FileNotFoundException ex) { ex.printStackTrace(); }
+        return load.parseStates();
+    }
 
+    private void goToSimulation(ArrayList<Status> arr) {
+        try {
+            Parent anotherRoot = FXMLLoader.load(getClass().getResource("/simulatorWindow/Simulator.fxml"));
+            Stage window = (Stage)(handleProfiles.getScene().getWindow());
+            window.setWidth(900);
+            window.setHeight(700);
+            simulator.setProgram(new Default(arr, "Default"));
+            handleProfiles.getScene().setRoot(anotherRoot);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

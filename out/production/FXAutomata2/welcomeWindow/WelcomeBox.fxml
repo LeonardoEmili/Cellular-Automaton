@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -31,7 +32,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" text="Load Profile">
+            <Button alignment="CENTER" lineSpacing="2.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" onAction="#open" text="Load Profile">
                <font>
                   <Font name="LMSans17-Regular" size="20.0" />
                </font>

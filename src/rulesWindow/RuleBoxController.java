@@ -114,10 +114,10 @@ public class RuleBoxController implements Initializable {
             ArrayList<Status> newStates=new ArrayList<>();
             for(Status s: this.states){
                 s.setOperator();
+                for(Rule r:s.ruleSet){r.stat=s.id;}
                 newStates.add(s);
             }
             Default program=new Default(newStates,"Default");
-            for(Status st:program.states){st.prog=program;}
             Simulator simulator=FXMLWBController.getSimulator();
             simulator.setProgram(program);
             showSimulation();

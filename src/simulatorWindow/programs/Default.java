@@ -8,15 +8,19 @@ import java.util.Random;
 public class Default extends CellularAutomataProgram {
     final public ArrayList<Status> states;
     public Cell[][] grid;
-    public volatile int ctrl=0;
+    //public volatile int ctrl = 0;
     public int h,w;
-    final public String name;
+    public String name;
+    public Wrapper myWrapper;
 
     public Default(ArrayList<Status> arr,String name){
         this.states=arr;
         this.name=name;
+        this.myWrapper = new Wrapper();
+        for (Status s: states) { s.setWrapper(this.myWrapper); }
         killAll();
     }
+
     @Override
     public void setGridDimension(int w,int h){
         this.h=h;
@@ -42,14 +46,14 @@ public class Default extends CellularAutomataProgram {
     }
     @Override
     public void reset(){
-
+        Status s;
         for (int j = 0; j < gridSize.y; j++) {
             for (int l = 0; l < gridSize.x; l++) {
-                this.grid[j][l].s=this.states.get(new Random().nextInt(this.states.size()));
-                this.grid[j][l].color= this.grid[j][l].s.hex2Rgb(this.grid[j][l].s.hexValue);
-                this.grid[j][l].idStatus=this.grid[j][l].s.id;
-                this.grid[j][l].futureId=this.grid[j][l].s.id;
-                this.grid[j][l].s.cells.add(this.grid[j][l]);
+                s = this.states.get(new Random().nextInt(this.states.size()));
+                this.grid[j][l].color = s.hex2Rgb(s.hexValue);
+                this.grid[j][l].idStatus =s.id;
+                this.grid[j][l].futureId =s.id;
+                s.cells.add(this.grid[j][l]);
             }
         }
         unleashHell();
@@ -73,8 +77,9 @@ public class Default extends CellularAutomataProgram {
     @Override
     public void tick() {
 
-        if (this.ctrl>=states.size()){
-            this.ctrl=0;
+        if (myWrapper.getCtrl()>=states.size()){
+            myWrapper.setCtrl();
+
             for (int i = 0; i < gridSize.y; i++) {
                 for (int j = 0; j < gridSize.x; j++) {
                     for (Status s : this.states) {
