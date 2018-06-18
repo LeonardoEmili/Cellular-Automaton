@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea387c28-c280-4f53-ab7b-42dd054fdfb2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java" afterPath="$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java" />
+      <change beforePath="$PROJECT_DIR$/RelazioneJava.lyx" afterPath="$PROJECT_DIR$/RelazioneJava.lyx" />
+      <change beforePath="$PROJECT_DIR$/RelazioneJava.pdf" afterPath="$PROJECT_DIR$/RelazioneJava.pdf" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,18 +83,48 @@
       <file leaf-file-name="SimulatorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
+            <state relative-caret-position="1170">
               <caret line="90" column="57" lean-forward="false" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaveWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SaveWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
+            <state relative-caret-position="315">
               <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Status.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Status.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Wrapper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Default.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simulatorWindow/programs/Default.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="81" column="21" lean-forward="false" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -153,17 +186,17 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/Loader.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Status.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Rule.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/welcomeWindow/FXMLWBController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Cell.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/simulatorWindow/programs/GameOfLife.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/simulatorWindow/Simulator.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/Loader.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Cell.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Rule.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/simulatorWindow/programs/Default.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/inputWindow/FXMLIPController.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -208,7 +241,6 @@
         <option value="$PROJECT_DIR$/src/simulatorWindow/Simulator.fxml" />
         <option value="$PROJECT_DIR$/src/welcomeWindow/WelcomeBox.fxml" />
         <option value="$PROJECT_DIR$/src/rulesWindow/RuleBox.fxml" />
-        <option value="$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java" />
         <option value="$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java" />
         <option value="$PROJECT_DIR$/src/simulatorWindow/utils/Cell.java" />
         <option value="$PROJECT_DIR$/src/simulatorWindow/utils/Status.java" />
@@ -219,6 +251,7 @@
         <option value="$PROJECT_DIR$/src/simulatorWindow/Simulator.java" />
         <option value="$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java" />
         <option value="$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java" />
+        <option value="$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java" />
       </list>
     </option>
   </component>
@@ -245,63 +278,46 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
+              <item name="Cellular-automata-finale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cellular-automata-finale" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
+              <item name="Cellular-automata-finale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cellular-automata-finale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="CAutomatasWindow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="inputWindow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rulesWindow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
+              <item name="Cellular-automata-finale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cellular-automata-finale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simulatorWindow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
+              <item name="Cellular-automata-finale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cellular-automata-finale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simulatorWindow" type="462c0819:PsiDirectoryNode" />
               <item name="programs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Cellular-automata-final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cellular-automata-final" type="462c0819:PsiDirectoryNode" />
+              <item name="Cellular-automata-finale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cellular-automata-finale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="welcomeWindow" type="462c0819:PsiDirectoryNode" />
+              <item name="simulatorWindow" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,8 +358,8 @@
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
       <option name="WIDTH" value="0" />
+      <module />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -614,12 +630,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1058" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32629356" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -630,7 +646,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26197916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -675,6 +691,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/programs/CellularAutomataProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="90" column="57" lean-forward="false" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/inputWindow/FXMLIPController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
@@ -780,52 +820,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/Simulator.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/welcomeWindow/WelcomeBox.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rulesWindow/RuleBox.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rulesWindow/RuleBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4273">
           <caret line="287" column="5" lean-forward="false" selection-start-line="287" selection-start-column="5" selection-end-line="287" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#10871#10872#0" expanded="false" />
-            <element signature="e#10964#10965#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-576">
           <caret line="72" column="65" lean-forward="false" selection-start-line="72" selection-start-column="65" selection-end-line="72" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,25 +872,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simulatorWindow/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,21 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/programs/Default.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#3189#3190#0" expanded="false" />
-            <element signature="e#3243#3244#0" expanded="false" />
-            <element signature="e#3413#3414#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3498#3499#0" expanded="false" />
-            <element signature="e#3530#3531#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/welcomeWindow/FXMLWBController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -956,7 +925,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SimulatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
+        <state relative-caret-position="1170">
           <caret line="90" column="57" lean-forward="false" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
           <folding />
         </state>
@@ -964,8 +933,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simulatorWindow/SaveWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="315">
           <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/programs/Default.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="81" column="21" lean-forward="false" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simulatorWindow/utils/Wrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
           <folding />
         </state>
       </provider>
